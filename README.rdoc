@@ -1,0 +1,68 @@
+= Planetoid
+
+Planetoid is a lightweight planet, for small communities who want to aggregate their feeds in one single place.
+
+= Dependencies
+
+Planetoid is a rails app, so this means you need to have ruby and rails installed. You can find more info about Ruby on Rails framework on http://rubyonrails.org
+
+Also, Planetoid uses the awesome Feedzirra gem to fetch the feeds. You'll need to install this gem too, so you can find more about it at http://github.com/pauldix/feedzirra
+
+= Installation notes
+
+Just like a normal rails app:
+
+* Copy the provided config/database.yml.example as config/database.yml and edit it to point to your databases
+* Run "rake db:migrate" to create the tables
+* Launch the server and visit the site.
+
+= Basic administration
+
+From the initial install, you'll be prompted to create your first users and feeds. When you access these admin sections, you'll be asked for the admin login/password. Default login and passwords are on the app/controllers/application_controller.rb file, CHANGE THEM BEFORE GOING INTO PRODUCTION!
+
+I'm planning of a better admin interface, but for now if you want to enter into the admin section, just go to http://localhost:3000/users
+
+= Feed parsing
+
+Just add your feed URLs and they'll be parsed automatically when they're created.
+
+There is a rake task that will update all the feeds, you can put this into your cron to automate it:
+
+  rake planetoid:fetch:all
+
+= To Do
+
+This is just a prototype, so you can expect new versions soon. Features I'd like to add:
+
+* Move config variables to a file
+* Auto-discovery of feeds from user urls
+* Auto-fetch feeds when they have not been updated since a given amount of time
+* Show latest post by each user
+* Order users by recent activity
+* Twitter status parsing for all users
+* Pagination
+* Twitter integration so it shows the updates on a given twitter account
+* RSS for the whole site or by individual users
+* Templates
+* Internationalization
+* More testing and mocks
+* Manage github projects
+* Improved admin interface
+
+= Thank you!
+
+I wanted to thank the whole Ruby community and following people in particular:
+
+* Paul Dix (http://pauldix.net) for his wonderful Feedzirra parser
+* Emili Parreño (http://eparreno.com) for his template
+
+= License and copyright
+
+This app is MIT licensed, wich basically means you can do whatever you want with it, and there's no warranty of any kind. Read the MIT-LICENSE file to get the details.
+
+However, if you like it I would like you to send me an e-mail letting me know, also I'd like to receive your feedback and suggestions.
+
+Thanks!
+
+(c) 2009, Jaime Iniesta (jaimeiniesta AT gmail DOT com) http://jaimeiniesta.com
+

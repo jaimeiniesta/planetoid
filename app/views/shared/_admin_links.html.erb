@@ -1,0 +1,5 @@
+<% if session[:admin] %>
+<div style="float:right; border: 1px solid orange; padding: 5px;">
+	<strong>admin</strong>: <%= link_to 'users', users_path %> | <%= link_to 'feeds', feeds_path %> | <%= link_to 'entries', entries_path %>
+</div>
+<% end %>

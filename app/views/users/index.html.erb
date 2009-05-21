@@ -1,0 +1,34 @@
+<div class="span-7">
+  <h2>Admin users</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Email</th>
+	    <th>Blog</th>
+	    <th>Twitter</th>
+	    <th>Github</th>
+			<th colspan="3">&nbsp;</th>
+	  </tr>
+
+	<% @users.each do |user| %>
+	  <tr>
+	    <td><%=h user.name %></td>
+	    <td><%=h user.email %></td>
+	    <td><%= link_to user.blog_url.gsub("http://", ""), user.blog_url %></td>
+	    <td><%= link_to user.twitter_url.gsub("http://", ""), user.twitter_url %></td>
+	    <td><%= link_to user.github_url.gsub("http://", ""), user.github_url %></td>
+	    <td><%= link_to 'Show', user %></td>
+	    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+	    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<br />
+
+	<%= link_to 'New user', new_user_path %>
+</div>
+

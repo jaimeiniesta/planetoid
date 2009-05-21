@@ -1,0 +1,31 @@
+<div class="span-7">
+  <h2>Members</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<% if @users.empty? %>
+		<strong>What a lonely planet! There's nobody here. Would you like to <%= link_to 'create your first user', new_user_path %> now?</strong>
+	<% else %>
+		<% @users.each do |user| %>
+			<%= render :partial => 'user', :locals => { :user => user } %>
+			<%= "<hr />" if user != @users.last %>
+		<% end %>
+	<% end %>
+</div>
+
+<% if !@users.empty? %>
+	<hr class="space" />
+	<hr/>
+	<div class="span-7 colborder">
+	  <h2>Blog posts</h2>
+	</div>
+	<div class="span-15 last">
+		<% if @entries.empty? %>
+			<strong>What a boring planet! Nobody tells any tale. Would you like to <%= link_to 'add a feed', new_feed_path %> now?</strong>
+		<% else %>
+			<% @entries.each do |e| %>
+				<p><%= link_to h(e.title), e.url %> published <%= time_ago_in_words e.published %> ago by <%= link_to h(e.feed.user.name), e.feed.user.blog_url %></p>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>

@@ -1,0 +1,17 @@
+jaime_blog:
+  id: 1
+  user_id: 1
+  feed_url: http://feeds.feedburner.com/JaimeIniesta
+  last_modified: <%= 3.days.ago %>
+
+javier_blog:
+  id: 2
+  user_id: 4
+  feed_url: http://feeds.feedburner.com/FormatInternet
+  last_modified: <%= 2.days.ago %>
+
+emili_blog:
+  id: 3
+  user_id: 5
+  feed_url: http://www.eparreno.com/feed/
+  last_modified: <%= 1.day.ago %>

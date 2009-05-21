@@ -1,0 +1,17 @@
+/*links...*/
+a:link, a:active, a:visited {
+  color: #b00800;
+  text-decoration: none;
+  padding: .5em .25em .5em .25em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/*...links*/
+
+h1 {
+	color: #b00800;
+	font-weight: bold;
+	text-transform: lowercase;
+}

@@ -1,0 +1,49 @@
+<div class="span-7">
+  <h2>Admin entries</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<h3>Entry</h3>
+
+	<p>
+	  <b>Feed:</b>
+	  <%= link_to h(@entry.feed.title), @entry.feed %>
+	</p>
+
+	<p>
+	  <b>Url:</b>
+	  <%=link_to @entry.url %>
+	</p>
+
+	<p>
+	  <b>Author:</b>
+	  <%=h @entry.author %>
+	</p>
+
+	<p>
+	  <b>Summary:</b>
+		<div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+	  	<%= simple_format @entry.summary %>
+		</div>
+	</p>
+
+	<p>
+	  <b>Content:</b>
+		<div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+	  	<%= simple_format @entry.content %>
+		</div>
+	</p>
+
+	<p>
+	  <b>Published:</b>
+	  <%=h @entry.published %>
+	</p>
+
+	<p>
+	  <b>Categories:</b>
+	  <%=h @entry.categories %>
+	</p>
+
+	<%= link_to 'Back', entries_path %>
+
+</div>

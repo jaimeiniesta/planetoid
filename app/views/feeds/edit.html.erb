@@ -1,0 +1,43 @@
+<div class="span-7">
+  <h2>Admin feeds</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<h3>Edit feed</h3>
+
+	<% form_for(@feed) do |f| %>
+	  <%= f.error_messages %>
+
+	  <p>
+	    <%= f.label :user_id %><br />
+	    <%= f.collection_select :user_id, User.find(:all), :id, :name %>
+	  </p>
+	  <p>
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title %>
+	  </p>
+	  <p>
+	    <%= f.label :url %><br />
+	    <%= f.text_field :url %>
+	  </p>
+	  <p>
+	    <%= f.label :feed_url %><br />
+	    <%= f.text_field :feed_url %>
+	  </p>
+	  <p>
+	    <%= f.label :etag %><br />
+	    <%= f.text_field :etag %>
+	  </p>
+	  <p>
+	    <%= f.label :last_modified %><br />
+	    <%= f.datetime_select :last_modified %>
+	  </p>
+	  <p>
+	    <%= f.submit 'Update' %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Show', @feed %> |
+	<%= link_to 'Back', feeds_path %>
+
+</div>
