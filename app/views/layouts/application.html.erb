@@ -4,7 +4,9 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Planetoid</title>
+	<title><%= PLANETOID_CONF[:site][:title] %></title>
+	<meta name="description" content="<%= PLANETOID_CONF[:site][:description] %>">
+	<meta name="keywords" content="<%= PLANETOID_CONF[:site][:keywords] %>">
 	<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
 	<link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" media="screen, projection">
   <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->

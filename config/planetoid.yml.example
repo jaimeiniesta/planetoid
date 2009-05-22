@@ -1,0 +1,26 @@
+# Planetoid config file.
+# Copy this file as config/planetoid.yml and change it to configure your planetoid
+# You can have different environments if you like, for production, staging or testing
+
+development: &development
+    
+  :admin:
+    :login: administrator
+    :password: 12341234
+
+  :site:
+    :title: Planetoid
+    :description: A feed aggregator for a small (or not so small) community
+    :keywords: planetoid, planet, community, feeds, blogs
+    :header:
+        :title: Header
+        :content: A header is a good place to explain your mission to the world, how to contact you, stuff like that.
+    :footer:
+        :title: Footer
+        :content: A footer is a good place to put some credits on your site, a copyleft notice, some links, etc.
+        
+test:
+    <<: *development
+    
+production:
+    <<: *development

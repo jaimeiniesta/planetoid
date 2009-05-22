@@ -10,8 +10,7 @@ Also, Planetoid uses the awesome Feedzirra gem to fetch the feeds. You'll need t
 
 = Installation notes
 
-Just like a normal rails app:
-
+* Copy the provided config/planetoid.yml.example as config/planetoid.yml and edit it to change the default admin login and password, or any other config settings
 * Copy the provided config/database.yml.example as config/database.yml and edit it to point to your databases
 * Run "rake db:migrate" to create the tables
 * Launch the server and visit the site.
@@ -34,7 +33,6 @@ There is a rake task that will update all the feeds, you can put this into your 
 
 This is just a prototype, so you can expect new versions soon. Features I'd like to add:
 
-* Move config variables to a file
 * Auto-discovery of feeds from user urls
 * Auto-fetch feeds when they have not been updated since a given amount of time
 * Show latest post by each user

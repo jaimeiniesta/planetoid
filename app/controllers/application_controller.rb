@@ -8,11 +8,10 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  # HTTP authentication used to protect staging of curious eyes
-  # TODO: move login and password to a config file
+  # HTTP authentication for admin sections
   def master_authentication
     authenticate_or_request_with_http_basic do |user_name, password|
-      user_name == "admin" && password == "1234"
+      user_name == PLANETOID_CONF[:admin][:login].to_s && password == PLANETOID_CONF[:admin][:password].to_s
     end unless RAILS_ENV == 'test'
   end
   
