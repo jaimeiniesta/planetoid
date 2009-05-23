@@ -8,13 +8,13 @@ class EntriesControllerTest < ActionController::TestCase
   end
 
   test "should show entry" do
-    get :show, :id => entries(:one).to_param
+    get :show, :id => entries(:jaime_blog_1).to_param
     assert_response :success
   end
 
   test "should destroy entry" do
     assert_difference('Entry.count', -1) do
-      delete :destroy, :id => entries(:one).to_param
+      delete :destroy, :id => entries(:jaime_blog_1).to_param
     end
 
     assert_redirected_to entries_path

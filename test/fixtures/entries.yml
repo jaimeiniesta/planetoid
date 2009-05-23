@@ -1,19 +1,21 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
+jaime_blog_1:
+  id: 1
   feed_id: 1
-  url: MyString
-  author: MyString
-  summary: MyText
-  content: MyText
+  url: http://feedproxy.google.com/~r/JaimeIniesta/~3/ZkzIZVRLt-c/
+  author: Jaime Iniesta
+  title: Planetoid, a lightweight planet
+  summary: I tell the world planetoid is born
+  content: Planetoid is a lightweight planet patatin patatan...
   published: 2009-05-20 17:59:46
-  categories: MyString
+  categories: ruby, rails, web development, planets
 
-two:
+jaime_blog_2:
+  id: 2
   feed_id: 1
-  url: MyString
-  author: MyString
-  summary: MyText
-  content: MyText
+  url: http://feedproxy.google.com/~r/JaimeIniesta/~3/Yd3t7vMVkhM/
+  author: Jaime Iniesta
+  title: Listen Hotmail
+  summary: I complain about Hotmail
+  content: Hotmail is a burden to everyone in the World and should disappear...
   published: 2009-05-20 17:59:46
-  categories: MyString
+  categories: web development, spam, servers, webmail
