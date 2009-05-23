@@ -5,7 +5,7 @@ class Feed < ActiveRecord::Base
   
   validates_presence_of :user_id, :feed_url
   validates_uniqueness_of :feed_url
-  validates_format_of :feed_url, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+  validates_format_of :feed_url, :with => REXP_URL
   
   #
   # Fetch feed, update attibutes and create entries
