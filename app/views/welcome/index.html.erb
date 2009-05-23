@@ -24,7 +24,7 @@
 			<strong>What a boring planet! Nobody tells any tale. Would you like to <%= link_to 'add a feed', new_feed_path %> now?</strong>
 		<% else %>
 			<% @entries.each do |e| %>
-				<p><%= link_to h(e.title), e.url %> published <%= time_ago_in_words e.published %> ago by <%= link_to h(e.feed.user.name), e.feed.user.blog_url %></p>
+				<p><strong><%= link_to h(e.title), e.url %></strong> published <%= time_ago_in_words e.published %> ago by <%= link_to h(e.feed.user.name), e.feed.user.blog_url %></p>
 			<% end %>
 		<% end %>
 	</div>
