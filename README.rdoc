@@ -46,6 +46,7 @@ This is just a prototype, so you can expect new versions soon. Features I'd like
 * More testing and mocks
 * Manage github projects
 * Improved admin interface
+* On users profile, store only twitter and github nicks, not the full URL. Validate its format (begins with @ or not, etc.)
 
 = Thank you!
 
