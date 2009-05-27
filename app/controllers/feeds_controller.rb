@@ -1,7 +1,6 @@
 class FeedsController < ApplicationController
-  before_filter :master_authentication
-  after_filter :admin_login
-  
+  before_filter :admin_required
+    
   # GET /feeds
   def index
     @feeds = Feed.all(:order => 'last_modified desc')

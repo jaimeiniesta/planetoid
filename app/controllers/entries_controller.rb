@@ -1,7 +1,6 @@
 class EntriesController < ApplicationController
-  before_filter :master_authentication
-  after_filter :admin_login
-    
+  before_filter :admin_required
+  
   # GET /entries
   def index
     @entries = Entry.all(:order => 'published desc')

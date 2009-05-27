@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :master_authentication
-  after_filter :admin_login
-  
+  before_filter :admin_required
+    
   # GET /users
   def index
     @users = User.all
