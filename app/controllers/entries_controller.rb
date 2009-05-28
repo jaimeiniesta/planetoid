@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_filter :admin_required
+  before_filter :admin_required, :only => :destroy
   
   # GET /entries
   def index

@@ -1,5 +1,5 @@
 <div class="span-7">
-  <h2>Admin entries</h2>
+  <h2>Entries</h2>
 </div>
 
 <div class="span-15 leftborder last">
@@ -19,7 +19,9 @@
 	    <td><%= link_to h(entry.title), entry.url %></td>
 	    <td><%= time_ago_in_words entry.published %> ago</td>
 	    <td><%= link_to 'Show', entry %></td>
+			<% if admin? %>
 	    <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete %></td>
+			<% end %>
 	  </tr>
 	<% end %>
 	</table>

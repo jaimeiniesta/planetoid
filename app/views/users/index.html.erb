@@ -1,5 +1,5 @@
 <div class="span-7">
-  <h2>Admin users</h2>
+  <h2>Users</h2>
 </div>
 
 <div class="span-15 leftborder last">
@@ -21,14 +21,17 @@
 	    <td><%= link_to user.twitter_url.gsub("http://", ""), user.twitter_url %></td>
 	    <td><%= link_to user.github_url.gsub("http://", ""), user.github_url %></td>
 	    <td><%= link_to 'Show', user %></td>
+			<% if admin? %>
 	    <td><%= link_to 'Edit', edit_user_path(user) %></td>
 	    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+			<% end %>
 	  </tr>
 	<% end %>
 	</table>
 
+	<% if admin? %>
 	<br />
-
 	<%= link_to 'New user', new_user_path %>
+	<% end %>
 </div>
 

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
 	<link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" media="screen, projection">
   <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<%= javascript_include_tag :defaults %>
 </head>
 
 <body>
@@ -17,8 +18,6 @@
 	<div class="container">  
 		
 		<%= render :partial => 'shared/header' %>
-		
-		<%= render :partial => 'shared/flashes' %>
 		
 		<%= yield %>
 

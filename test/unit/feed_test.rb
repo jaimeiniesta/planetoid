@@ -29,11 +29,31 @@ class FeedTest < ActiveSupport::TestCase
   end  
 
   def test_should_validate_uniqueness_of_fields
-    # TODO
+    feed = Feed.new(:user_id => users(:emili).to_param, :feed_url => feeds(:jaime_blog).feed_url)
+    assert !feed.valid?
+    assert feed.errors.on(:feed_url)
+    
+    feed.feed_url="http://www.example.com/feed"
+    assert feed.valid?
   end
   
   def test_should_validate_format_of_url
-    # TODO
+    # http://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_host_names
+    # RFCs mandate that a hostname's labels may contain only the ASCII letters 'a' through 'z' (case-insensitive), the digits '0' through '9', and the hyphen.
+    # Hostname labels cannot begin or end with a hyphen. No other symbols, punctuation characters, or blank spaces are permitted.
+    
+    feed = Feed.new(:user_id => users(:emili).to_param, :feed_url => "http://www.example.com/feed")
+    assert feed.valid?
+    
+    ['http://www.example.com', 'http://www.example-with-hyphens.com'].each do |address|
+      feed.feed_url = address
+      assert feed.valid?
+    end
+    
+    [nil, '', 'badaddress', 'email@example.com', 'ftp://example.com', 'http://www.example_with_underscore.com', 'http://www.-example.com', 'http://www.example-.com', 'nohttp.com', 'www.nohttp.com', 'http://www.we have spaces.com'].each do |address|
+      feed.feed_url = address
+      assert !feed.valid?
+    end
   end
 
   private

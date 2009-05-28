@@ -19,9 +19,12 @@ class ApplicationController < ActionController::Base
   
   # Check the user has been identified as admin, or redirect to login
   def admin_required
-    unless admin?
+    if admin?
+      true
+    else
       flash[:error] = "Sorry, authentication required"
       redirect_to '/login'
+      false
     end
   end
 end

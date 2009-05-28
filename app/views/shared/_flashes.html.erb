@@ -1,7 +1,13 @@
 <% if flash[:notice] %>
-	<p style="color: green; width: 100%; padding: 5px; border: 1px solid green; text-align: center;"><%= flash[:notice] %></p>
+	<p style="color: green; width: 100%; padding: 5px; border: 1px solid green; text-align: center;" id="flash"><%= flash[:notice] %></p>
 <% end %>
 
 <% if flash[:error] %>
-	<p style="color: red; width: 100%; padding: 5px; border: 1px solid red; text-align: center;"><%= flash[:error] %></p>
+	<p style="color: red; width: 100%; padding: 5px; border: 1px solid red; text-align: center;" id="flash"><%= flash[:error] %></p>
+<% end %>
+
+<% if flash[:notice] || flash[:error] %>
+	<script type="text/javascript">
+		new Effect.Highlight('flash');
+	</script>
 <% end %>

@@ -1,5 +1,5 @@
 <div class="span-7">
-  <h2>Admin users</h2>
+  <h2>Users</h2>
 </div>
 
 <div class="span-15 leftborder last">
@@ -30,6 +30,5 @@
 	  <%= link_to @user.github_url %>
 	</p>
 
-	<%= link_to 'Edit', edit_user_path(@user) %> |
-	<%= link_to 'Back', users_path %>
+	<%= link_to 'Edit', edit_user_path(@user) if admin? %> | <%= link_to 'Back', users_path %>
 </div>

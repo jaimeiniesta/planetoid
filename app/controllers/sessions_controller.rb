@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to '/' if admin?
   end
 
   def create

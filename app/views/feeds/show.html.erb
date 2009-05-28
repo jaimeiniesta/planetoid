@@ -1,5 +1,5 @@
 <div class="span-7">
-  <h2>Admin feeds</h2>
+  <h2>Feeds</h2>
 </div>
 
 <div class="span-15 leftborder last">
@@ -40,6 +40,5 @@
 		This feed has <%= pluralize @feed.entries.count, "entry" %>
 	</p>
 
-	<%= link_to 'Edit', edit_feed_path(@feed) %> |
-	<%= link_to 'Back', feeds_path %>
+	<%= link_to 'Edit', edit_feed_path(@feed) if admin? %> | <%= link_to 'Back', feeds_path %>
 </div>

@@ -1,3 +1,8 @@
+= 0.0.3
+=== 28th May, 2009
+* New sessions controller for login / logout with a form instead of http authentication
+* Integrated admin actions into public layout, restricted actions and hidden links for non-admins
+
 = 0.0.2
 === 22nd May, 2009
 * Moved basic config to a config file, to be able to customize admin login and password, site title, meta description, meta keywords, header and footer

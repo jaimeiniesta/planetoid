@@ -5,7 +5,7 @@ class Feed < ActiveRecord::Base
   
   validates_presence_of :user_id, :feed_url
   validates_uniqueness_of :feed_url
-  validates_format_of :feed_url, :with => REXP_URL
+  validates_format_of :feed_url, :with => REXP_URL, :allow_nil => false, :allow_blank => false
   
   #
   # Fetch feed, update attibutes and create entries

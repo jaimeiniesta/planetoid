@@ -17,9 +17,9 @@ Also, Planetoid uses the awesome Feedzirra gem to fetch the feeds. You'll need t
 
 = Basic administration
 
-From the initial install, you'll be prompted to create your first users and feeds. When you access these admin sections, you'll be asked for the admin login/password. Default login and passwords are on the app/controllers/application_controller.rb file, CHANGE THEM BEFORE GOING INTO PRODUCTION!
+From the initial install, you'll be prompted to create your first users and feeds. When you access these admin sections, you'll be asked for the admin login/password that you should define previously on the config/planetoid.yml file.
 
-I'm planning of a better admin interface, but for now if you want to enter into the admin section, just go to http://localhost:3000/users
+To identify yourself as an admin, just go to /login
 
 = Feed parsing
 
@@ -43,9 +43,8 @@ This is just a prototype, so you can expect new versions soon. Features I'd like
 * RSS for the whole site or by individual users
 * Templates
 * Internationalization
-* More testing and mocks
+* Mocks
 * Manage github projects
-* Improved admin interface
 * On users profile, store only twitter and github nicks, not the full URL. Validate its format (begins with @ or not, etc.)
 * Calendar showing activity
 
@@ -55,6 +54,7 @@ I wanted to thank the whole Ruby community and following people in particular:
 
 * Paul Dix (http://pauldix.net) for his wonderful Feedzirra parser
 * Emili Parreño (http://eparreno.com) for his template
+* Juan Gallego Galisteo (http://juan.gg/) for his comments, ideas and code contributions
 
 = License and copyright
 

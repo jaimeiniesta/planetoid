@@ -1,5 +1,5 @@
 <div class="span-7">
-  <h2>Admin feeds</h2>
+  <h2>Feeds</h2>
 </div>
 
 <div class="span-15 leftborder last">
@@ -17,17 +17,20 @@
 	<% @feeds.each do |feed| %>
 	  <tr>
 	    <td><%=link_to h(feed.user.name), feed.user %></td>
-	    <td><%=h feed.title %>
+	    <td><%=h feed.title %></td>
 	    <td><%=link_to feed.feed_url %></td>
 	    <td><%=time_ago_in_words feed.last_modified %> ago</td>
 	    <td><%= link_to 'Show', feed %></td>
+			<% if admin? %>
 	    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
 	    <td><%= link_to 'Destroy', feed, :confirm => 'Are you sure?', :method => :delete %></td>
+			<% end %>
 	  </tr>
 	<% end %>
 	</table>
 
+	<% if admin? %>
 	<br />
-
 	<%= link_to 'New feed', new_feed_path %>
+	<% end %>
 </div>
