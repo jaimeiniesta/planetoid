@@ -3,45 +3,45 @@ jaime:
   name: Jaime Iniesta
   email: jaimeiniesta@example.com
   blog_url: http://jaimeiniesta.com
-  twitter_url: http://twitter.com/jaimeiniesta
-  github_url: http://github.com/jaimeiniesta
+  twitter_user: jaimeiniesta
+  github_user: jaimeiniesta
 
 rai:
   id: 2
   name: Raimond Garcia
   email: raimondgarcia@example.com
   blog_url: http://raimondgarcia.com
-  twitter_url: http://twitter.com/voodoorai2000
-  github_url: http://github.com/voodoorai2000
+  twitter_user: voodoorai2000
+  github_user: voodoorai2000
   
 raul:
   id: 3
   name: Raul Murciano
   email: raulmurciano@example.com
   blog_url: http://raul.murciano.net
-  twitter_url: http://twitter.com/happywebcoder
-  github_url: http://github.com/raul
+  twitter_user: happywebcoder
+  github_user: raul
   
 javier:
   id: 4
   name: Javier Ramirez
   email: javierramirez@example.com
   blog_url: http://formatinternet.com
-  twitter_url: http://twitter.com/supercoco9
-  github_url: http://github.com/javier
+  twitter_user: supercoco9
+  github_user: javier
   
 emili:
   id: 5
   name: Emili Parreno
   email: emiliparreno@example.com
   blog_url: http://eparreno.com
-  twitter_url: http://twitter.com/eparreno
-  github_url: http://github.com/eparreno
+  twitter_user: eparreno
+  github_user: eparreno
   
 felipe:
   id: 6
   name: Felipe Talavera
   email: felipetalavera@example.com
   blog_url: http://iamfelipe.com
-  twitter_url: http://twitter.co/flype
-  github_url: http://github.com/flype
+  twitter_user: flype
+  github_user: flype  
