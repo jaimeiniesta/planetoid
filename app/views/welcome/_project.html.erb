@@ -1,0 +1,9 @@
+<div class="span-12 last">
+	<h3><%= h project.name %></h3>
+	<p><%= link_to h(project.url.gsub("http://", "")), h(project.url) %>
+	<%= simple_format(project.description) %>
+	People involved:<br /><br />
+	<ul>
+		<%= project.users.map {|u| "<li>#{link_to(h(u.name), u.blog_url)}</li>"} %>
+	</ul>
+</div>

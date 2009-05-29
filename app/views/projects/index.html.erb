@@ -1,0 +1,34 @@
+<div class="span-7">
+  <h2>Projects</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<h3>Listing projects</h3>
+
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Description</th>
+	    <th>Url</th>
+			<th colspan="3">&nbsp;</th>
+	  </tr>
+
+	<% @projects.each do |project| %>
+	  <tr>
+	    <td><%=h project.name %></td>
+	    <td><%=h project.description %></td>
+	    <td><%=h project.url %></td>
+	    <td><%= link_to 'Show', project %></td>
+			<% if admin? %>
+	    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+	    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+			<% end %>
+	  </tr>
+	<% end %>
+	</table>
+
+	<% if admin? %>
+	<br />
+	<%= link_to 'New project', new_project_path %>
+	<% end %>
+</div>

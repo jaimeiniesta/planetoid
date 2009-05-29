@@ -1,3 +1,7 @@
+= 0.0.4
+=== 29th May, 2009
+* Project management: you can store name, description, url and associate it to many users
+
 = 0.0.3
 === 28th May, 2009
 * New sessions controller for login / logout with a form instead of http authentication

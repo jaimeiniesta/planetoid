@@ -17,6 +17,22 @@
 	<hr class="space" />
 	<hr/>
 	<div class="span-7 colborder">
+	  <h2>Projects</h2>
+	</div>
+	<div class="span-15 last">
+		<% if @projects.empty? %>
+			<strong>What a quiet planet! Nobody works in any project. Would you like to <%= link_to 'add a project', new_project_path %> now?</strong>
+		<% else %>
+			<% @projects.each do |project| %>
+				<%= render :partial => 'project', :locals => { :project => project } %>
+				<%= "<hr />" if project != @projects.last %>
+			<% end %>
+		<% end %>
+	</div>
+
+	<hr class="space" />
+	<hr/>
+	<div class="span-7 colborder">
 	  <h2>Blog posts</h2>
 	</div>
 	<div class="span-15 last">

@@ -79,6 +79,16 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_destroy_user_and_cascade_delete
+    assert_difference('User.count', -1) do
+      assert_difference('Feed.count', -1) do
+        assert_difference('Entry.count', -2) do
+          users(:jaime).destroy
+        end
+      end
+    end
+  end
+  
   private
   
   def create_user(options = {})
