@@ -6,9 +6,8 @@ class ChangeUsersRenameTwitterAndGithubColumns < ActiveRecord::Migration
     end
     
     User.all.each do |user|
-      user.github_user.gsub!(GITHUB_URL, '')
-      user.twitter_user.gsub!(TWITTER_URL, '')
-      user.save
+      user.update_attributes(:github_user => user.github_user.gsub(GITHUB_URL, ''),
+        :twitter_user => user.twitter_user.gsub(TWITTER_URL, ''))
     end
   end
 
