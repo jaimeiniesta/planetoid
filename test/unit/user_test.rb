@@ -41,8 +41,8 @@ class UserTest < ActiveSupport::TestCase
     
     user.email = "pepito@example.com"
     user.blog_url = "http://pepito.jaimeiniesta.com"
-    user.twitter_user = "http://twitter.com/pepito"
-    user.github_user = "http://github.com/pepito"
+    user.twitter_user = "pepito"
+    user.github_user = "pepito"
   end
   
   def test_email_should_have_a_valid_format
@@ -57,6 +57,36 @@ class UserTest < ActiveSupport::TestCase
       user.email = s
       assert user.valid?
       assert !user.errors.on(:email)
+    end
+  end
+  
+  def test_twitter_user_should_have_a_valid_format
+    user = create_user
+    ['jaimeiniesta', 'nickel 83', 'h.ppywebcoder'].each do |s|
+      user.twitter_user = s
+      assert !user.valid?
+      assert user.errors.on(:twitter_user)
+    end
+    
+    ['ji', 'nickel83', 'sepa_rate'].each do |s|
+      user.twitter_user = s
+      assert user.valid?
+      assert !user.errors.on(:twitter_user)
+    end
+  end
+  
+  def test_github_user_should_have_a_valid_format
+    user = create_user
+    ['jaimeiniesta', 'nickel 83', 'h.ppywebcoder'].each do |s|
+      user.github_user = s
+      assert !user.valid?
+      assert user.errors.on(:github_user)
+    end
+    
+    ['ji', 'nickel83', 'sepa_rate'].each do |s|
+      user.github_user = s
+      assert user.valid?
+      assert !user.errors.on(:github_user)
     end
   end
   
