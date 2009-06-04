@@ -62,13 +62,13 @@ class UserTest < ActiveSupport::TestCase
   
   def test_twitter_user_should_have_a_valid_format
     user = create_user
-    ['jaimeiniesta', 'nickel 83', 'h.ppywebcoder'].each do |s|
+    ['nickel 83', 'h.ppywebcoder'].each do |s|
       user.twitter_user = s
       assert !user.valid?
       assert user.errors.on(:twitter_user)
     end
     
-    ['ji', 'nickel83', 'sepa_rate'].each do |s|
+    ['ji', 'nickel84', 'sepa_rate'].each do |s|
       user.twitter_user = s
       assert user.valid?
       assert !user.errors.on(:twitter_user)
@@ -77,13 +77,13 @@ class UserTest < ActiveSupport::TestCase
   
   def test_github_user_should_have_a_valid_format
     user = create_user
-    ['jaimeiniesta', 'nickel 83', 'h.ppywebcoder'].each do |s|
+    ['nickel 84', 'h.ppywebcoder'].each do |s|
       user.github_user = s
       assert !user.valid?
       assert user.errors.on(:github_user)
     end
     
-    ['ji', 'nickel83', 'sepa_rate'].each do |s|
+    ['ji', 'nickel84', 'sepa_rate'].each do |s|
       user.github_user = s
       assert user.valid?
       assert !user.errors.on(:github_user)
