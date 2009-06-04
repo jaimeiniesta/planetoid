@@ -1,6 +1,6 @@
 = Planetoid
 
-Planetoid is a lightweight planet, for small communities who want to aggregate their feeds in one single place.
+Planetoid is a lightweight planet, for small communities who want to aggregate their feeds and projects in one single place.
 
 = Dependencies
 
@@ -44,7 +44,6 @@ This is just a prototype, so you can expect new versions soon. Features I'd like
 * Templates
 * Internationalization
 * Mocks
-* Manage github projects
 * On users profile, store only twitter and github nicks, not the full URL. Validate its format (begins with @ or not, etc.)
 * Calendar showing activity
 

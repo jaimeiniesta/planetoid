@@ -1,50 +1,14 @@
-CREATE TABLE `entries` (
-  `id` int(11) NOT NULL auto_increment,
-  `feed_id` int(11) default NULL,
-  `title` varchar(255) default NULL,
-  `url` varchar(255) default NULL,
-  `author` varchar(255) default NULL,
-  `summary` text,
-  `content` text,
-  `published` datetime default NULL,
-  `categories` varchar(255) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `feeds` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) default NULL,
-  `title` varchar(255) default NULL,
-  `url` varchar(255) default NULL,
-  `feed_url` varchar(255) default NULL,
-  `etag` varchar(255) default NULL,
-  `last_modified` datetime default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-CREATE TABLE `schema_migrations` (
-  `version` varchar(255) NOT NULL,
-  UNIQUE KEY `unique_schema_migrations` (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) default NULL,
-  `email` varchar(255) default NULL,
-  `blog_url` varchar(255) default NULL,
-  `twitter_url` varchar(255) default NULL,
-  `github_url` varchar(255) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=977805240 DEFAULT CHARSET=latin1;
-
+CREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "feed_id" integer, "title" varchar(255), "url" varchar(255), "author" varchar(255), "summary" text, "content" text, "published" datetime, "categories" varchar(255), "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar(255), "url" varchar(255), "feed_url" varchar(255), "etag" varchar(255), "last_modified" datetime, "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "url" varchar(255), "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "projects_users" ("project_id" integer, "user_id" integer);
+CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "blog_url" varchar(255), "twitter_url" varchar(255), "github_url" varchar(255), "created_at" datetime, "updated_at" datetime);
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
 INSERT INTO schema_migrations (version) VALUES ('20090520134455');
 
 INSERT INTO schema_migrations (version) VALUES ('20090520145728');
 
 INSERT INTO schema_migrations (version) VALUES ('20090520155946');
+
+INSERT INTO schema_migrations (version) VALUES ('20090528214708');

@@ -44,4 +44,12 @@ felipe:
   email: felipetalavera@example.com
   blog_url: http://iamfelipe.com
   twitter_user: flype
-  github_user: flype  
+  github_user: flype
+  
+juan:
+  id: 7
+  name: Juan Gallego
+  email: juangallego@example.com
+  blog_url: http://juan.gg
+  twitter_user: nickel83
+  github_user: nickel

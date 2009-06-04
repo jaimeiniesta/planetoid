@@ -1,0 +1,11 @@
+planetoid:
+  id: 1
+  name: Planetoid
+  description: A lightweight planet
+  url: http://github.com/jaimeiniesta/planetoid
+
+metainspector:
+  id: 2
+  name: MetaInspector
+  description: A ruby gem for web scraping purposes
+  url: http://github.com/jaimeiniesta/metainspector

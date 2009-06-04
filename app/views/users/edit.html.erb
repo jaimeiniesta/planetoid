@@ -20,12 +20,14 @@
 	    <%= f.text_field :blog_url %>
 	  </p>
 	  <p>
-	    <%= f.label :twitter_url %><br />
-	    <%= f.text_field :twitter_url %>
+	    <%= f.label :twitter_user %><br />
+			<%= TWITTER_URL %>
+	    <%= f.text_field :twitter_user %>
 	  </p>
 	  <p>
-	    <%= f.label :github_url %><br />
-	    <%= f.text_field :github_url %>
+	    <%= f.label :github_user %><br />
+	    <%= GITHUB_URL %>
+			<%= f.text_field :github_user %>
 	  </p>
 	  <p>
 	    <%= f.submit 'Update' %>

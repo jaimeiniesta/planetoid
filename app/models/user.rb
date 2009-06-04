@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :feeds, :dependent => :destroy
+  has_and_belongs_to_many :projects
+  
   validates_presence_of :name, :email
   validates_uniqueness_of :email
   validates_uniqueness_of :blog_url, :twitter_user, :github_user, :allow_blank => true

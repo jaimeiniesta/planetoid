@@ -1,0 +1,37 @@
+<div class="span-7">
+  <h2>Projects</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<h3>Editing project</h3>
+
+	<% form_for(@project) do |f| %>
+	  <%= f.error_messages %>
+
+	  <p>
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </p>
+	  <p>
+	    <%= f.label :description %><br />
+	    <%= f.text_area :description %>
+	  </p>
+	  <p>
+	    <%= f.label :url %><br />
+	    <%= f.text_field :url %>
+	  </p>
+		<p>
+			<label>People involved in this project</label><br />
+			<% User.find(:all, :order => 'name').each do |u| %>
+				<%= check_box_tag("project[user_ids][]", u.id, @project.users.include?(u)) %>
+			 	<%= h u.name %><br />
+			<% end %>
+		</p>
+	  <p>
+	    <%= f.submit 'Update' %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Show', @project %> |
+	<%= link_to 'Back', projects_path %>
+</div>

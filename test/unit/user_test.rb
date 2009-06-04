@@ -62,13 +62,13 @@ class UserTest < ActiveSupport::TestCase
   
   def test_twitter_user_should_have_a_valid_format
     user = create_user
-    ['jaimeiniesta', 'nickel 83', 'h.ppywebcoder'].each do |s|
+    ['nickel 83', 'h.ppywebcoder'].each do |s|
       user.twitter_user = s
       assert !user.valid?
       assert user.errors.on(:twitter_user)
     end
     
-    ['ji', 'nickel83', 'sepa_rate'].each do |s|
+    ['ji', 'nickel84', 'sepa_rate'].each do |s|
       user.twitter_user = s
       assert user.valid?
       assert !user.errors.on(:twitter_user)
@@ -77,13 +77,13 @@ class UserTest < ActiveSupport::TestCase
   
   def test_github_user_should_have_a_valid_format
     user = create_user
-    ['jaimeiniesta', 'nickel 83', 'h.ppywebcoder'].each do |s|
+    ['nickel 84', 'h.ppywebcoder'].each do |s|
       user.github_user = s
       assert !user.valid?
       assert user.errors.on(:github_user)
     end
     
-    ['ji', 'nickel83', 'sepa_rate'].each do |s|
+    ['ji', 'nickel84', 'sepa_rate'].each do |s|
       user.github_user = s
       assert user.valid?
       assert !user.errors.on(:github_user)
@@ -106,6 +106,16 @@ class UserTest < ActiveSupport::TestCase
     ['badaddress', 'email@example.com', 'ftp://example.com', 'http://www.example_with_underscore.com', 'http://www.-example.com', 'http://www.example-.com', 'nohttp.com', 'www.nohttp.com', 'http://www.we have spaces.com'].each do |address|
       u.blog_url = address
       assert !u.valid?
+    end
+  end
+  
+  def test_should_destroy_user_and_cascade_delete
+    assert_difference('User.count', -1) do
+      assert_difference('Feed.count', -1) do
+        assert_difference('Entry.count', -2) do
+          users(:jaime).destroy
+        end
+      end
     end
   end
   

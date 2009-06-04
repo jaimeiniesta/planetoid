@@ -56,6 +56,14 @@ class FeedTest < ActiveSupport::TestCase
     end
   end
 
+  def test_should_destroy_feed_and_cascade_delete
+    assert_difference('Feed.count', -1) do
+      assert_difference('Entry.count', -2) do
+        users(:jaime).destroy
+      end
+    end
+  end
+
   private
   
   def create_feed(options = {})
