@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   
   # GET /projects
   def index
-    @projects = Project.all
+    @projects = Project.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb

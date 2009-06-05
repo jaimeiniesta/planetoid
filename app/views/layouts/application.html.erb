@@ -5,6 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><%= PLANETOID_CONF[:site][:title] %></title>
+	<link rel="alternate" type="application/rss+xml" title="<%= PLANETOID_CONF[:site][:title] %> feed" href="<%= entries_url :format => :rss %>" />
 	<meta name="description" content="<%= PLANETOID_CONF[:site][:description] %>">
 	<meta name="keywords" content="<%= PLANETOID_CONF[:site][:keywords] %>">
 	<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">

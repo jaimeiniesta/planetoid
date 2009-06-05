@@ -23,6 +23,17 @@ class UsersControllerTest < ActionController::TestCase
     get :show, :id => users(:jaime).to_param
     assert_response :success
     assert assigns(:user)
+    
+    assert assigns(:entries)
+    assigns(:entries).each do |e|
+      assert_equal e.feed.user, assigns(:user)
+    end
+
+    assert assigns(:projects)
+    assigns(:projects).each do |p|
+      assert p.users.include?(assigns(:user))
+    end
+    
     assert_no_tag :a, :content => "Edit", :attributes => {:href => edit_user_path(assigns(:user))}
   end
   

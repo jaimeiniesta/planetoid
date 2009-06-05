@@ -1,0 +1,20 @@
+<div class="span-7">
+  <h2>Tips</h2>
+</div>
+
+<div class="span-15 leftborder last">
+	<% if @users.empty? %>
+		<p><strong>What a lonely planet! There's nobody here. Would you like to <%= link_to 'add a user', new_user_path %> now?</strong></p>
+	<% else %>
+		<% if @projects.empty? %>
+			<p><strong>What a quiet planet! Nobody works in any project. Would you like to <%= link_to 'add a project', new_project_path %> now?</strong></p>
+		<% end %>
+
+		<% if @entries.empty? %>
+			<p><strong>What a boring planet! Nobody tells any tale. Would you like to <%= link_to 'add a feed', new_feed_path %> now?</strong></p>
+		<% end %>	
+	<% end %>
+</div>
+
+<hr class="space" />
+<hr/>

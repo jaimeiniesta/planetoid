@@ -19,13 +19,6 @@ class FeedsControllerTest < ActionController::TestCase
     assert_no_tag :a, :content => "New feed", :attributes => {:href => new_feed_path}    
   end
   
-  def test_should_show_feed
-    get :show, :id => feeds(:jaime_blog).to_param
-    assert_response :success
-    assert assigns(:feed)
-    assert_no_tag :a, :content => "Edit", :attributes => {:href => edit_feed_path(assigns(:feed))}
-  end
-  
   ############################################
   # Public actions as admin shows admin links
   ############################################  
@@ -44,14 +37,6 @@ class FeedsControllerTest < ActionController::TestCase
     assert_tag :a, :content => "New feed", :attributes => {:href => new_feed_path}    
   end
   
-  def test_should_show_feed_as_admin
-    login_as_admin
-    get :show, :id => feeds(:jaime_blog).to_param
-    assert_response :success
-    assert assigns(:feed)
-    assert_tag :a, :content => "Edit", :attributes => {:href => edit_feed_path(assigns(:feed))}
-  end  
-  
   ################
   # Admin actions
   ################
@@ -68,7 +53,7 @@ class FeedsControllerTest < ActionController::TestCase
       post :create, :feed => { :user_id => users(:jaime).id, :feed_url => "http://feeds.feedburner.com/PageRankAlert" }
     end
 
-    assert_redirected_to feed_path(assigns(:feed))
+    assert_redirected_to feeds_path
   end
 
   def test_should_get_edit
@@ -80,7 +65,7 @@ class FeedsControllerTest < ActionController::TestCase
   def test_should_update_feed
     login_as_admin
     put :update, :id => feeds(:jaime_blog).to_param, :feed => { }
-    assert_redirected_to feed_path(assigns(:feed))
+    assert_redirected_to feeds_path
   end
 
   def test_should_destroy_feed

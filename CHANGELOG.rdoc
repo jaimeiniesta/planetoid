@@ -1,3 +1,14 @@
+= 0.0.6
+=== 5th June, 2009
+* DRYed up and simplified views
+* Removed show actions on entries and feeds
+* Removed destroy action on entries
+* Show projects and posts by user
+
+= 0.0.4
+=== 5th June, 2009
+* Twitter and Github users instead of URLs (by @nickel83) 
+
 = 0.0.4
 === 29th May, 2009
 * Project management: you can store name, description, url and associate it to many users

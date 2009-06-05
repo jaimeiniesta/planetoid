@@ -1,0 +1,12 @@
+<div class="span-12 last">
+	<h3><strong><%= h project.name %></strong> <small>by <%= project.users.map {|u| "#{link_to(h(u.name), u)}"}.join(", ") %></small></h3>
+	<p><%= link_to h(project.url.gsub("http://", "")), h(project.url) %></p>
+	<blockquote><%= simple_format(project.description) %></blockquote>
+	
+	<% if admin? %>
+  	<p>
+			<%= link_to 'Edit', edit_project_path(project) %> | 
+  		<%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+		</p>
+	<% end %>
+</div>

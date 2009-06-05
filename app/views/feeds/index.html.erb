@@ -3,24 +3,19 @@
 </div>
 
 <div class="span-15 leftborder last">
-	<h3>Listing feeds</h3>
+	<h3>For your convenience, here's the full list of feeds in this planet</h3>
 
 	<table>
 	  <tr>
 	    <th>User</th>
-	    <th>Title</th>
 	    <th>Feed url</th>
-	    <th>Last modified</th>
-			<th colspan="3">&nbsp;</th>	
+			<th colspan="2">&nbsp;</th>	
 	  </tr>
 
 	<% @feeds.each do |feed| %>
 	  <tr>
 	    <td><%=link_to h(feed.user.name), feed.user %></td>
-	    <td><%=h feed.title %></td>
-	    <td><%=link_to feed.feed_url %></td>
-	    <td><%=time_ago_in_words feed.last_modified %> ago</td>
-	    <td><%= link_to 'Show', feed %></td>
+	    <td><%= auto_link feed.feed_url %></td>
 			<% if admin? %>
 	    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
 	    <td><%= link_to 'Destroy', feed, :confirm => 'Are you sure?', :method => :delete %></td>

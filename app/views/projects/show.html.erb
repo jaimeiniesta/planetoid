@@ -3,24 +3,7 @@
 </div>
 
 <div class="span-15 leftborder last">
-	<p>
-	  <b>Name:</b>
-	  <%=h @project.name %>
-	</p>
-
-	<p>
-	  <b>Description:</b>
-	  <%=h @project.description %>
-	</p>
-
-	<p>
-	  <b>Url:</b>
-	  <%=h @project.url %>
-	</p>
-
-
-	<%= link_to 'Edit', edit_project_path(@project) if admin? %> |
-	<%= link_to 'Back', projects_path %>
+	<%= render :partial => 'projects/project', :locals => { :project => @project }  %>
 </div>
 
 
