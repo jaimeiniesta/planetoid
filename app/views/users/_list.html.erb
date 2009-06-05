@@ -1,5 +1,5 @@
 <div class="span-7">
-  <h2>Users</h2>
+  <h2>Members</h2>
 </div>
 
 <div class="span-15 leftborder last">
@@ -7,12 +7,4 @@
 		<%= render :partial => 'users/user', :locals => { :user => user } %>
 		<%= "<hr />" if user != @users.last %>
 	<% end %>
-
-	<% if admin? %>
-		<br class="clear" />
-		<p>
-			<%= link_to 'New user', new_user_path %>
-		</p>
-	<% end %>
 </div>
-

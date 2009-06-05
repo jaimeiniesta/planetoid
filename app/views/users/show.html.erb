@@ -1,34 +1,11 @@
 <div class="span-7">
-  <h2>Users</h2>
+  <h2><%= h @user.name %></h2>
 </div>
 
 <div class="span-15 leftborder last">
-	<h3>User</h3>
-	<%= image_tag(url_for_gravatar(@user.email), :align => "right") %>
-	<p>
-	  <b>Name:</b>
-	  <%=h @user.name %>
-	</p>
-
-	<p>
-	  <b>Email:</b>
-	  <%= link_to @user.email, "mailto:#{@user.email}" %>
-	</p>
-
-	<p>
-	  <b>Blog url:</b>
-	  <%= link_to @user.blog_url %>
-	</p>
-
-	<p>
-	  <b>Twitter url:</b>
-	  <%= link_to @user.twitter_url %>
-	</p>
-
-	<p>
-	  <b>Github url:</b>
-	  <%= link_to @user.github_url %>
-	</p>
-
-	<%= link_to 'Edit', edit_user_path(@user) if admin? %> | <%= link_to 'Back', users_path %>
+	<%= render :partial => 'users/user', :locals => { :user => @user }  %>
 </div>
+
+<%= render :partial => 'projects/list' if !@projects.empty? %>
+
+<%= render :partial => 'entries/list' if !@entries.empty? %>

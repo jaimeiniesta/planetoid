@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     
   # GET /users
   def index
-    @users = User.all
+    @users = User.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @user = User.find(params[:id])
+    @entries = @user.entries if @user
+    @projects = @user.projects if @user
 
     respond_to do |format|
       format.html # show.html.erb

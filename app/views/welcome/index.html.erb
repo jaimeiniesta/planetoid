@@ -1,47 +1,7 @@
-<div class="span-7">
-  <h2>Members</h2>
-</div>
+<%= render :partial => 'shared/tips' if @users.empty? || @projects.empty? || @entries.empty? %>
 
-<div class="span-15 leftborder last">
-	<% if @users.empty? %>
-		<strong>What a lonely planet! There's nobody here. Would you like to <%= link_to 'create your first user', new_user_path %> now?</strong>
-	<% else %>
-		<% @users.each do |user| %>
-			<%= render :partial => 'user', :locals => { :user => user } %>
-			<%= "<hr />" if user != @users.last %>
-		<% end %>
-	<% end %>
-</div>
+<%= render :partial => 'users/list' if !@users.empty? %>
 
-<% if !@users.empty? %>
-	<hr class="space" />
-	<hr/>
-	<div class="span-7 colborder">
-	  <h2>Projects</h2>
-	</div>
-	<div class="span-15 last">
-		<% if @projects.empty? %>
-			<strong>What a quiet planet! Nobody works in any project. Would you like to <%= link_to 'add a project', new_project_path %> now?</strong>
-		<% else %>
-			<% @projects.each do |project| %>
-				<%= render :partial => 'project', :locals => { :project => project } %>
-				<%= "<hr />" if project != @projects.last %>
-			<% end %>
-		<% end %>
-	</div>
+<%= render :partial => 'projects/list' if !@projects.empty? %>
 
-	<hr class="space" />
-	<hr/>
-	<div class="span-7 colborder">
-	  <h2>Blog posts</h2>
-	</div>
-	<div class="span-15 last">
-		<% if @entries.empty? %>
-			<strong>What a boring planet! Nobody tells any tale. Would you like to <%= link_to 'add a feed', new_feed_path %> now?</strong>
-		<% else %>
-			<% @entries.each do |e| %>
-				<p><strong><%= link_to h(e.title), e.url %></strong> published <%= time_ago_in_words e.published %> ago in <%= link_to h(e.feed.title), e.feed.url %> by <%= link_to h(e.feed.user.name), e.feed.user.blog_url %></p>
-			<% end %>
-		<% end %>
-	</div>
-<% end %>
+<%= render :partial => 'entries/list' if !@entries.empty? %>

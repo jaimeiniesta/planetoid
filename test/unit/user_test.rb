@@ -119,6 +119,13 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_get_entries_by_user
+    assert_equal users(:jaime).entries.count, 2
+    [:jaime_blog_1, :jaime_blog_2].each do |e|
+      assert users(:jaime).entries.include?(entries(e))
+    end
+  end
+  
   private
   
   def create_user(options = {})

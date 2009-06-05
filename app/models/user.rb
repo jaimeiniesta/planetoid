@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  has_many :feeds, :dependent => :destroy
-  has_and_belongs_to_many :projects
+  has_many :feeds, :order => :title, :dependent => :destroy
+  has_many :entries, :through => :feeds, :order => 'entries.published DESC'
+  
+  has_and_belongs_to_many :projects, :order => 'projects.name'
   
   validates_presence_of :name, :email
   validates_uniqueness_of :email

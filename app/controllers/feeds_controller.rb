@@ -1,21 +1,12 @@
 class FeedsController < ApplicationController
-  before_filter :admin_required, :except => [:index, :show]
+  before_filter :admin_required, :except => [:index]
     
   # GET /feeds
   def index
-    @feeds = Feed.all(:order => 'last_modified desc')
+    @feeds = Feed.all(:include => :user, :order => 'users.name')
 
     respond_to do |format|
       format.html # index.html.erb
-    end
-  end
-
-  # GET /feeds/1
-  def show
-    @feed = Feed.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
     end
   end
 
@@ -40,7 +31,7 @@ class FeedsController < ApplicationController
     respond_to do |format|
       if @feed.save
         flash[:notice] = 'Feed was successfully created.'
-        format.html { redirect_to(@feed) }
+        format.html { redirect_to(feeds_url) }
       else
         format.html { render :action => "new" }
       end
@@ -54,7 +45,7 @@ class FeedsController < ApplicationController
     respond_to do |format|
       if @feed.update_attributes(params[:feed])
         flash[:notice] = 'Feed was successfully updated.'
-        format.html { redirect_to(@feed) }
+        format.html { redirect_to(feeds_url) }
       else
         format.html { render :action => "edit" }
       end
