@@ -20,7 +20,7 @@ development: &development
       :content: A footer is a good place to put some credits on your site, a copyleft notice, some links, etc.
     
   :google:
-	  :analytics:
+    :analytics:
         
 test:
     <<: *development
