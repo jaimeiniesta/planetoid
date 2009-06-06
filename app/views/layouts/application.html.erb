@@ -15,9 +15,10 @@
 
 <body>
 	<div class="container">  
-		<%= render :partial => 'shared/header' %>
+		<%= render :partial => 'shared/title' %>
+		<%= render :partial => 'shared/header' if PLANETOID_CONF[:layout][:home][:show_header] %>
 		<%= yield %>
-		<%= render :partial => 'shared/footer' %>
+		<%= render :partial => 'shared/footer'  if PLANETOID_CONF[:layout][:home][:show_footer] %>
 	</div>
 	<%= render :partial => 'shared/google_analytics' if RAILS_ENV=='production' && !PLANETOID_CONF[:google][:analytics].to_s.strip.blank? -%>
 </body>

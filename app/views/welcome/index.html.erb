@@ -1,7 +1,6 @@
-<%= render :partial => 'shared/tips' if @users.empty? || @entries.empty? %>
 
-<%= render :partial => 'users/list' if !@users.empty? %>
+<%= render :partial => 'users/list' if PLANETOID_CONF[:layout][:home][:show_users] && !@users.empty? %>
 
-<%= render :partial => 'projects/list' if !@projects.empty? %>
+<%= render :partial => 'projects/list' if PLANETOID_CONF[:layout][:home][:show_projects] && !@projects.empty? %>
 
-<%= render :partial => 'entries/list' if !@entries.empty? %>
+<%= render :partial => 'entries/list' if PLANETOID_CONF[:layout][:home][:show_entries] && !@entries.empty? %>

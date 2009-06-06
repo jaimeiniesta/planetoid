@@ -18,7 +18,19 @@ development: &development
     :footer:
       :title: Footer
       :content: A footer is a good place to put some credits on your site, a copyleft notice, some links, etc.
-    
+
+  :layout:
+    :home:
+      :show_header: true
+      :show_footer: true
+      :show_users: true
+      :show_projects: true
+      :show_entries: true
+    :entries:
+      :title: blog posts
+      :show_avatar: true
+      :show_summary: true
+
   :google:
     :analytics:
         
