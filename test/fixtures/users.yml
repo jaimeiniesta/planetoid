@@ -53,3 +53,9 @@ juan:
   blog_url: http://juan.gg
   twitter_user: nickel83
   github_user: nickel
+  
+notdeveloper:
+  id: 8
+  name: Not Developer
+  email: notdeveloper@example.com
+  blog_url: http://notdeveloper.example.com

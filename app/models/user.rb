@@ -11,12 +11,13 @@ class User < ActiveRecord::Base
   validates_format_of :blog_url, :with => REXP_URL, :allow_blank => true
   validates_format_of :twitter_user, :github_user, :with => REXP_USER, :allow_blank => true
   
-  # Both methods to maintain compatibility with previous code  
+  # Returns the full github URL for this user if has a github user, or nil if not
   def github_url
-    GITHUB_URL + github_user
+    github_user.blank? ? nil : "#{GITHUB_URL}#{github_user}"
   end
   
+  # Returns the full twitter URL for this user if has a twitter user, or nil if not
   def twitter_url
-    TWITTER_URL + twitter_user
+    twitter_user.blank? ? nil : "#{TWITTER_URL}#{twitter_user}"
   end
 end

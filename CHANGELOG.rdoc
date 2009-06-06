@@ -1,3 +1,10 @@
+= 0.0.8
+=== 6th June, 2009
+* Made planetoid more flexible by not pretending it will be used for a developers community, by:
+* Removing tips for creating project
+* Not showing twitter / github links if empty
+* Refactoring and adding tests for twitter_url and github_url
+
 = 0.0.7
 === 6th June, 2009
 * Added google analytics support

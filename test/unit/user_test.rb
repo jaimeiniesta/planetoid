@@ -126,6 +126,16 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_get_twitter_url
+    assert_equal "http://twitter.com/jaimeiniesta", users(:jaime).twitter_url
+    assert_nil users(:notdeveloper).twitter_url
+  end
+  
+  def test_should_get_github_url
+    assert_equal "http://github.com/jaimeiniesta", users(:jaime).github_url
+    assert_nil users(:notdeveloper).github_url
+  end
+  
   private
   
   def create_user(options = {})
