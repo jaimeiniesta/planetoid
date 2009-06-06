@@ -29,6 +29,10 @@ There is a rake task that will update all the feeds, you can put this into your 
 
   rake planetoid:fetch:all
 
+= Some Extras
+
+* Google Analytics support. Just include your Google Analytics tracker number on the config/planetoid file and the code for Google Analytic will be included on the site (only for production environment). This number is something like UA-123456-78, you'll find it on your Google Analytics tracking code.
+
 = To Do
 
 This is just a prototype, so you can expect new versions soon. Features I'd like to add:

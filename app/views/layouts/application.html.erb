@@ -8,23 +8,17 @@
 	<link rel="alternate" type="application/rss+xml" title="<%= PLANETOID_CONF[:site][:title] %> feed" href="<%= entries_url :format => :rss %>" />
 	<meta name="description" content="<%= PLANETOID_CONF[:site][:description] %>">
 	<meta name="keywords" content="<%= PLANETOID_CONF[:site][:keywords] %>">
-	<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
-	<link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" media="screen, projection">
+	<%= stylesheet_link_tag 'screen', 'custom', :cache => true %>
   <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
-	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :defaults, :cache => true %>
 </head>
 
 <body>
-
 	<div class="container">  
-		
 		<%= render :partial => 'shared/header' %>
-		
 		<%= yield %>
-
 		<%= render :partial => 'shared/footer' %>
-
 	</div>
-
+	<%= render :partial => 'shared/google_analytics' if RAILS_ENV=='production' && !PLANETOID_CONF[:google][:analytics].to_s.strip.blank? -%>
 </body>
 </html>

@@ -13,11 +13,14 @@ development: &development
     :description: A feed aggregator for a small (or not so small) community
     :keywords: planetoid, planet, community, feeds, blogs
     :header:
-        :title: Header
-        :content: A header is a good place to explain your mission to the world, how to contact you, stuff like that.
+      :title: Header
+      :content: A header is a good place to explain your mission to the world, how to contact you, stuff like that.
     :footer:
-        :title: Footer
-        :content: A footer is a good place to put some credits on your site, a copyleft notice, some links, etc.
+      :title: Footer
+      :content: A footer is a good place to put some credits on your site, a copyleft notice, some links, etc.
+    
+  :google:
+	  :analytics:
         
 test:
     <<: *development
