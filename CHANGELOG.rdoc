@@ -1,6 +1,7 @@
 = 0.0.9
 === 7th June, 2009
 * Made home configurable, you can decide to show header, footer, users, projects, entries in home, and avatars and summaries on entries
+* Removed tips
 
 = 0.0.8
 === 6th June, 2009
