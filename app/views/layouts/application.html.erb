@@ -5,26 +5,21 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><%= PLANETOID_CONF[:site][:title] %></title>
-	<link rel="alternate" type="application/rss+xml" title="<%= PLANETOID_CONF[:site][:title] %> feed" href="<%= entries_url :format => :rss %>" />
+	<link rel="alternate" type="application/rss+xml" title="<%= PLANETOID_CONF[:site][:title] %> feed" href="<%= PLANETOID_CONF[:site][:feed_url].to_s.blank? ? entries_url(:format => :rss) : PLANETOID_CONF[:site][:feed_url].to_s %>" />
 	<meta name="description" content="<%= PLANETOID_CONF[:site][:description] %>">
 	<meta name="keywords" content="<%= PLANETOID_CONF[:site][:keywords] %>">
-	<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
-	<link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" media="screen, projection">
+	<%= stylesheet_link_tag 'screen', 'custom', :cache => true %>
   <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
-	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :defaults, :cache => true %>
 </head>
 
 <body>
-
 	<div class="container">  
-		
-		<%= render :partial => 'shared/header' %>
-		
+		<%= render :partial => 'shared/title' %>
+		<%= render :partial => 'shared/header' if PLANETOID_CONF[:layout][:home][:show_header] %>
 		<%= yield %>
-
-		<%= render :partial => 'shared/footer' %>
-
+		<%= render :partial => 'shared/footer'  if PLANETOID_CONF[:layout][:home][:show_footer] %>
 	</div>
-
+	<%= render :partial => 'shared/google_analytics' if RAILS_ENV=='production' && !PLANETOID_CONF[:google][:analytics].to_s.strip.blank? -%>
 </body>
 </html>

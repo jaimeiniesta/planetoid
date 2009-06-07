@@ -1,3 +1,22 @@
+= 0.0.9
+=== 7th June, 2009
+* Made home configurable, you can decide to show header, footer, users, projects, entries in home, and avatars and summaries on entries
+* Removed tips
+* User email is no longer mandatory
+* Feed URL is configurable, to use external services like FeedBurner (real URL is /entries.rss)
+
+= 0.0.8
+=== 6th June, 2009
+* Made planetoid more flexible by not pretending it will be used for a developers community, by:
+* Removing tips for creating project
+* Not showing twitter / github links if empty
+* Refactoring and adding tests for twitter_url and github_url
+
+= 0.0.7
+=== 6th June, 2009
+* Added google analytics support
+* Cache for javascript and css
+
 = 0.0.6
 === 5th June, 2009
 * DRYed up and simplified views

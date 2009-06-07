@@ -4,6 +4,7 @@
 
 <div class="span-15 leftborder last">
 	<%= render :partial => 'users/user', :locals => { :user => @user }  %>
+	<hr />
 </div>
 
 <%= render :partial => 'projects/list' if !@projects.empty? %>
