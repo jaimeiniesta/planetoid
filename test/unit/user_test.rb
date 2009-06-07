@@ -17,9 +17,8 @@ class UserTest < ActiveSupport::TestCase
   def test_should_validate_presence_of_required_fields
     user = User.new
     assert !user.valid?
-    assert_equal user.errors.size, 3
+    assert_equal user.errors.size, 1
     assert user.errors.on(:name)  # cant be blank
-    assert user.errors.on(:email) # cant be blank, format invalid
     
     user.name = "Pepito Grillo"
     user.email = "pepito@example.com"
@@ -47,13 +46,13 @@ class UserTest < ActiveSupport::TestCase
   
   def test_email_should_have_a_valid_format
     user = create_user
-    [nil, 'gmail', 'gmail.com', 'jaimeiniesta@gmail', '@gmail.com', 'jaimeiniesta @ gmail.com'].each do |s|
+    ['gmail', 'gmail.com', 'jaimeiniesta@gmail', '@gmail.com', 'jaimeiniesta @ gmail.com'].each do |s|
       user.email = s
       assert !user.valid?
       assert user.errors.on(:email)
     end
     
-    ['jaimeiniesta@gmail.com', 'pepe@example.com', 'JAIME@EXAMPLE.COM', 'jaime_iniesta@gmail.com', 'jaime.iniesta@gmail.com'].each do |s|
+    [nil, '', 'jaimeiniesta@gmail.com', 'pepe@example.com', 'JAIME@EXAMPLE.COM', 'jaime_iniesta@gmail.com', 'jaime.iniesta@gmail.com'].each do |s|
       user.email = s
       assert user.valid?
       assert !user.errors.on(:email)
