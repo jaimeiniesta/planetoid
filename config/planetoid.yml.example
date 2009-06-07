@@ -12,6 +12,7 @@ development: &development
     :title: Planetoid
     :description: A feed aggregator for a small (or not so small) community
     :keywords: planetoid, planet, community, feeds, blogs
+    :feed_url: 
     :header:
       :title: Header
       :content: A header is a good place to explain your mission to the world, how to contact you, stuff like that.

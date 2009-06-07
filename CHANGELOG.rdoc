@@ -3,6 +3,7 @@
 * Made home configurable, you can decide to show header, footer, users, projects, entries in home, and avatars and summaries on entries
 * Removed tips
 * User email is no longer mandatory
+* Feed URL is configurable, to use external services like FeedBurner (real URL is /entries.rss)
 
 = 0.0.8
 === 6th June, 2009
