@@ -1,3 +1,8 @@
+= 0.1.0
+=== 7th June, 2009
+* Entries truncate length and strip tags on summaries are configurable, turned on by default
+* Showing avatar for users is configurable, turned on by default
+
 = 0.0.9
 === 7th June, 2009
 * Made home configurable, you can decide to show header, footer, users, projects, entries in home, and avatars and summaries on entries

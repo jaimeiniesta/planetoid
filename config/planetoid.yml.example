@@ -27,10 +27,14 @@ development: &development
       :show_users: true
       :show_projects: true
       :show_entries: true
+    :users:
+      :show_avatar: true
     :entries:
       :title: blog posts
       :show_avatar: true
       :show_summary: true
+      :strip_tags: true
+      :summary_length: 400
 
   :google:
     :analytics:
