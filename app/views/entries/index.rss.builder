@@ -7,7 +7,7 @@ xml.rss :version => "2.0" do
     
     for entry in @entries
       xml.item do
-        xml.title entry.title
+        xml.title "#{entry.feed.user.name} :: #{entry.title}"
         xml.description entry.content
         xml.pubDate entry.created_at.to_s(:rfc822)
         xml.link entry.url
