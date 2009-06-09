@@ -82,7 +82,7 @@ class UserTest < ActiveSupport::TestCase
       assert user.errors.on(:github_user)
     end
     
-    ['ji', 'nickel84', 'sepa_rate'].each do |s|
+    ['ji', 'nickel84', 'sepa_rate', 'ernesto-jimenez'].each do |s|
       user.github_user = s
       assert user.valid?
       assert !user.errors.on(:github_user)
