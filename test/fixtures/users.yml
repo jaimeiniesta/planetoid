@@ -1,6 +1,7 @@
 jaime:
   id: 1
   name: Jaime Iniesta
+  slug: jaime-iniesta
   email: jaimeiniesta@example.com
   blog_url: http://jaimeiniesta.com
   twitter_user: jaimeiniesta
@@ -9,6 +10,7 @@ jaime:
 rai:
   id: 2
   name: Raimond Garcia
+  slug: raimond-garcia
   email: raimondgarcia@example.com
   blog_url: http://raimondgarcia.com
   twitter_user: voodoorai2000
@@ -17,6 +19,7 @@ rai:
 raul:
   id: 3
   name: Raul Murciano
+  slug: raul-murciano
   email: raulmurciano@example.com
   blog_url: http://raul.murciano.net
   twitter_user: happywebcoder
@@ -25,6 +28,7 @@ raul:
 javier:
   id: 4
   name: Javier Ramirez
+  slug: javier-ramirez
   email: javierramirez@example.com
   blog_url: http://formatinternet.com
   twitter_user: supercoco9
@@ -33,6 +37,7 @@ javier:
 emili:
   id: 5
   name: Emili Parreno
+  slug: emili-parreno
   email: emiliparreno@example.com
   blog_url: http://eparreno.com
   twitter_user: eparreno
@@ -41,6 +46,7 @@ emili:
 felipe:
   id: 6
   name: Felipe Talavera
+  slug: felipe-talavera
   email: felipetalavera@example.com
   blog_url: http://iamfelipe.com
   twitter_user: flype
@@ -49,6 +55,7 @@ felipe:
 juan:
   id: 7
   name: Juan Gallego
+  slug: juan-gallego
   email: juangallego@example.com
   blog_url: http://juan.gg
   twitter_user: nickel83
@@ -57,5 +64,6 @@ juan:
 notdeveloper:
   id: 8
   name: Not Developer
+  slug: not-developer
   email: notdeveloper@example.com
   blog_url: http://notdeveloper.example.com
