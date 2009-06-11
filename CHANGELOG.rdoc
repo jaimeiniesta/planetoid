@@ -1,3 +1,8 @@
+= 0.1.1
+=== 11th June, 2009
+* Added sluggable_finder gem for user permalinks
+* New alias routes for "/members" and "/members/user-permalink"
+
 = 0.1.0
 === 7th June, 2009
 * Entries truncate length and strip tags on summaries are configurable, turned on by default
