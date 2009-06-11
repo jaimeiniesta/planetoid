@@ -82,7 +82,7 @@ class UserTest < ActiveSupport::TestCase
       assert user.errors.on(:github_user)
     end
     
-    ['ji', 'nickel84', 'sepa_rate'].each do |s|
+    ['ji', 'nickel84', 'sepa_rate', 'ernesto-jimenez'].each do |s|
       user.github_user = s
       assert user.valid?
       assert !user.errors.on(:github_user)
@@ -133,6 +133,16 @@ class UserTest < ActiveSupport::TestCase
   def test_should_get_github_url
     assert_equal "http://github.com/jaimeiniesta", users(:jaime).github_url
     assert_nil users(:notdeveloper).github_url
+  end
+  
+  def test_should_create_slug
+    user = create_user
+    assert_equal user.slug, 'pepe-planeta'
+  end
+  
+  def test_should_not_repeat_slug
+    user = create_user(:name => 'Jaime Iniesta')
+    assert_equal user.slug, 'jaime-iniesta-2'
   end
   
   private

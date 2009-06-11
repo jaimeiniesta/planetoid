@@ -6,7 +6,14 @@ Planetoid is a lightweight planet, for small communities who want to aggregate t
 
 Planetoid is a rails app, so this means you need to have ruby and rails installed. You can find more info about Ruby on Rails framework on http://rubyonrails.org
 
-Also, Planetoid uses the awesome Feedzirra gem to fetch the feeds. You'll need to install this gem too, so you can find more about it at http://github.com/pauldix/feedzirra
+Also, Planetoid requires the following gems:
+
+* Feedzirra, to fetch the feeds. http://github.com/pauldix/feedzirra
+* Sluggable Finder, to generate user permalinks. http://github.com/ismasan/sluggable-finder
+
+You can install these gems manually or running:
+
+  sudo rake:gems:install
 
 = Installation notes
 
@@ -33,6 +40,13 @@ There is a rake task that will update all the feeds, you can put this into your 
 
 * Google Analytics support. Just include your Google Analytics tracker number on the config/planetoid file and the code for Google Analytic will be included on the site (only for production environment). This number is something like UA-123456-78, you'll find it on your Google Analytics tracking code.
 
+= List of sites using Planetoid
+
+Here's a list of sample sites using Planetoid. If you want your site to be added, just send me a message.
+
+* http://spainrb.org
+* http://planetgirona.net
+
 = To Do
 
 This is just a prototype, so you can expect new versions soon. Features I'd like to add:
@@ -58,6 +72,7 @@ I wanted to thank the whole Ruby community and following people in particular:
 * Paul Dix (http://pauldix.net) for his wonderful Feedzirra parser
 * Emili Parreño (http://eparreno.com) for his template
 * Juan Gallego Galisteo (http://juan.gg/) for his comments, ideas and code contributions
+* Ismael Celis (http://estadobeta.com/) for his wonderful Sluggable Finder gem
 
 = License and copyright
 

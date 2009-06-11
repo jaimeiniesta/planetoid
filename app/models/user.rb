@@ -8,10 +8,13 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => REXP_EMAIL, :allow_blank => true
   validates_format_of :blog_url, :with => REXP_URL, :allow_blank => true
-  validates_format_of :twitter_user, :github_user, :with => REXP_USER, :allow_blank => true
+  validates_format_of :twitter_user, :with => REXP_TWITTER_USER, :allow_blank => true
+  validates_format_of :github_user, :with => REXP_GITHUB_USER, :allow_blank => true
   
   validates_uniqueness_of :email, :allow_blank => true
-  validates_uniqueness_of :blog_url, :twitter_user, :github_user, :allow_blank => true  
+  validates_uniqueness_of :blog_url, :twitter_user, :github_user, :allow_blank => true
+  
+  sluggable_finder :name
   
   # Returns the full github URL for this user if has a github user, or nil if not
   def github_url
@@ -22,4 +25,5 @@ class User < ActiveRecord::Base
   def twitter_url
     twitter_user.blank? ? nil : "#{TWITTER_URL}#{twitter_user}"
   end
+
 end

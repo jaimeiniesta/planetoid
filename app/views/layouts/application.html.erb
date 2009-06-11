@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><%= PLANETOID_CONF[:site][:title] %></title>
 	<link rel="alternate" type="application/rss+xml" title="<%= PLANETOID_CONF[:site][:title] %> feed" href="<%= PLANETOID_CONF[:site][:feed_url].to_s.blank? ? entries_url(:format => :rss) : PLANETOID_CONF[:site][:feed_url].to_s %>" />
+	<meta name="generator" content="Planetoid" /> <!-- leave this for stats -->
 	<meta name="description" content="<%= PLANETOID_CONF[:site][:description] %>">
 	<meta name="keywords" content="<%= PLANETOID_CONF[:site][:keywords] %>">
 	<%= stylesheet_link_tag 'screen', 'custom', :cache => true %>
