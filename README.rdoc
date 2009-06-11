@@ -6,7 +6,10 @@ Planetoid is a lightweight planet, for small communities who want to aggregate t
 
 Planetoid is a rails app, so this means you need to have ruby and rails installed. You can find more info about Ruby on Rails framework on http://rubyonrails.org
 
-Also, Planetoid uses the awesome Feedzirra gem to fetch the feeds. You'll need to install this gem too, so you can find more about it at http://github.com/pauldix/feedzirra
+Also, Planetoid requires the following gems:
+
+* Feedzirra, to fetch the feeds. http://github.com/pauldix/feedzirra
+* Sluggable Finder, to generate user permalinks. http://github.com/ismasan/sluggable-finder
 
 = Installation notes
 
