@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090609085237) do
+ActiveRecord::Schema.define(:version => 20090611075753) do
 
   create_table "entries", :force => true do |t|
     t.integer  "feed_id"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(:version => 20090609085237) do
     t.string   "github_user"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], :name => "index_users_on_slug"
 
 end

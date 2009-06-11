@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :allow_blank => true
   validates_uniqueness_of :blog_url, :twitter_user, :github_user, :allow_blank => true
   
+  sluggable_finder :name
+  
   # Returns the full github URL for this user if has a github user, or nil if not
   def github_url
     github_user.blank? ? nil : "#{GITHUB_URL}#{github_user}"
@@ -23,4 +25,5 @@ class User < ActiveRecord::Base
   def twitter_url
     twitter_user.blank? ? nil : "#{TWITTER_URL}#{twitter_user}"
   end
+
 end

@@ -1,5 +1,5 @@
 <div class="span-3">
-	<%= link_to image_tag(url_for_gravatar(user.email), :alt => h(user.name), :title => h(user.name)), user  if PLANETOID_CONF[:layout][:users][:show_avatar] %>
+	<%= link_to image_tag(url_for_gravatar(user.email), :alt => h(user.name), :title => h(user.name)), member_path(user) if PLANETOID_CONF[:layout][:users][:show_avatar] %>
 </div>
 <div class="span-12 last">
 	<h3><strong><%= h user.name %></strong></h3>
