@@ -11,6 +11,10 @@ Also, Planetoid requires the following gems:
 * Feedzirra, to fetch the feeds. http://github.com/pauldix/feedzirra
 * Sluggable Finder, to generate user permalinks. http://github.com/ismasan/sluggable-finder
 
+You can install these gems manually or running:
+
+  sudo rake:gems:install
+
 = Installation notes
 
 * Copy the provided config/planetoid.yml.example as config/planetoid.yml and edit it to change the default admin login and password, or any other config settings
@@ -68,6 +72,7 @@ I wanted to thank the whole Ruby community and following people in particular:
 * Paul Dix (http://pauldix.net) for his wonderful Feedzirra parser
 * Emili Parreño (http://eparreno.com) for his template
 * Juan Gallego Galisteo (http://juan.gg/) for his comments, ideas and code contributions
+* Ismael Celis (http://estadobeta.com/) for his wonderful Sluggable Finder gem
 
 = License and copyright
 
