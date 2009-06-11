@@ -10,9 +10,9 @@ class FeedTest < ActiveSupport::TestCase
   
   def test_should_create_feed_and_fetch_entries
     assert_difference('Feed.count', +1) do
-      assert_difference('Entry.count', +28) do #TODO: check there is any difference, not this exact amount
-        create_feed
-      end
+      num_entries_before = Entry.count
+      create_feed
+      assert Entry.count > num_entries_before
     end
   end
   
