@@ -7,10 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :entries
   map.resources :feeds
-  map.resources :users
-  
-  map.members '/members', :controller => 'users', :action => 'index'
-  map.member '/members/:id', :controller => 'users', :action => 'show'
+  map.resources :users, :as => 'members'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

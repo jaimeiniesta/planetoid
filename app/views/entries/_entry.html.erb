@@ -1,6 +1,6 @@
 <p>
-	<strong><%= link_to h(entry.title), entry.url %></strong> published<%= " #{time_ago_in_words entry.published} ago" if entry.published %> by <%= link_to h(entry.feed.user.name), member_path(entry.feed.user) %>
-	<%= link_to image_tag(url_for_gravatar(entry.feed.user.email), :alt => h(entry.feed.user.name), :title => h(entry.feed.user.name), :align => 'absmiddle', :hspace => 10), member_path(entry.feed.user) if PLANETOID_CONF[:layout][:entries][:show_avatar] %>
+	<strong><%= link_to h(entry.title), entry.url %></strong> published<%= " #{time_ago_in_words entry.published} ago" if entry.published %> by <%= link_to h(entry.feed.user.name), entry.feed.user %>
+	<%= link_to image_tag(url_for_gravatar(entry.feed.user.email), :alt => h(entry.feed.user.name), :title => h(entry.feed.user.name), :align => 'absmiddle', :hspace => 10), entry.feed.user if PLANETOID_CONF[:layout][:entries][:show_avatar] %>
 </p>
 
 <% if PLANETOID_CONF[:layout][:entries][:show_summary] && entry.summary %>

@@ -16,7 +16,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_no_tag :a, :content => "Destroy", :attributes => {:href => user_path(user)}
     end
     
-    assert_no_tag :a, :content => "New user", :attributes => {:href => new_user_path}
+    assert_no_tag :a, :content => "New member", :attributes => {:href => new_user_path}
   end
 
   def test_should_show_user
@@ -52,7 +52,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_tag :a, :content => "Destroy", :attributes => {:href => user_path(user)}
     end
     
-    assert_tag :a, :content => "New user", :attributes => {:href => new_user_path}
+    assert_tag :a, :content => "New member", :attributes => {:href => new_user_path}
   end
 
   def test_should_show_user_as_admin
