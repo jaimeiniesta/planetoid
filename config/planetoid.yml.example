@@ -40,7 +40,7 @@ development: &development
     :analytics:
     
   :twitter:
-    :send_updates: true
+    :send_updates: false
     :update_prefix: "New Post!"
     :user: wadus
     :password: wadus
