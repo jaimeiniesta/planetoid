@@ -45,6 +45,7 @@ There is a rake task that will update all the feeds, you can put this into your 
 Here's a list of sample sites using Planetoid. If you want your site to be added, just send me a message.
 
 * http://spainrb.org
+* http://planet.flowersinspace.com
 * http://planetgirona.net
 
 = To Do
