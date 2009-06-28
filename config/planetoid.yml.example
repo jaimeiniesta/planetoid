@@ -10,6 +10,7 @@ development: &development
 
   :site:
     :title: Planetoid
+    :url: http://github.com/jaimeiniesta/planetoid
     :description: A feed aggregator for a small (or not so small) community
     :keywords: planetoid, planet, community, feeds, blogs
     :feed_url: 
@@ -40,10 +41,20 @@ development: &development
     :analytics:
     
   :twitter:
-    :send_updates: false
-    :update_prefix: "New Post!"
     :user: wadus
     :password: wadus
+    :users:
+      :send_twitts: false
+      :prefix: New Member!
+    :feeds:
+      :send_twitts: false
+      :prefix: New Feed!
+    :entries:
+      :send_twitts: false
+      :prefix: New Post!
+    :projects:
+      :send_twitts: false
+      :prefix: New Project!
         
 test:
     <<: *development

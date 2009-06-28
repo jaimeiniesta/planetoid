@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   
   sluggable_finder :name
   
+  after_create :twitt
+  
   # Returns the full github URL for this user if has a github user, or nil if not
   def github_url
     github_user.blank? ? nil : "#{GITHUB_URL}#{github_user}"
@@ -25,5 +27,15 @@ class User < ActiveRecord::Base
   def twitter_url
     twitter_user.blank? ? nil : "#{TWITTER_URL}#{twitter_user}"
   end
+  
+  private
+  
+  # Send a twitter notification if necessary
+  def twitt
+    if PLANETOID_CONF[:twitter][:users][:send_twitts]
+      twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
+      twit.update "#{PLANETOID_CONF[:twitter][:users][:prefix]} #{self.name} #{PLANETOID_CONF[:site][:url]}/#{self.slug}" 
+    end
+  end  
 
 end

@@ -1,7 +1,7 @@
 class Feed < ActiveRecord::Base
   belongs_to :user
   has_many :entries, :dependent => :destroy
-  after_create :fetch!
+  after_create :fetch!, :twitt
   
   validates_presence_of :user_id, :feed_url
   validates_uniqueness_of :feed_url
@@ -35,6 +35,16 @@ class Feed < ActiveRecord::Base
   def self.fetch_all!
     Feed.find(:all).each do |f|
       f.fetch!
+    end
+  end
+  
+  private
+  
+  # Send a twitter notification if necessary
+  def twitt
+    if PLANETOID_CONF[:twitter][:feeds][:send_twitts]
+      twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
+      twit.update "#{PLANETOID_CONF[:twitter][:feeds][:prefix]} #{self.title} #{self.feed_url}" 
     end
   end
 end
