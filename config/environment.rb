@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'pauldix-feedzirra', :version => '~> 0.0.12', :lib => 'feedzirra', :source => 'http://gems.github.com'
   config.gem "ismasan-sluggable_finder", :source => "http://gems.github.com", :lib => 'sluggable_finder'
+  config.gem 'twitter', :version => '>= 0.4.2'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

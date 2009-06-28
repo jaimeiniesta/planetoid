@@ -5,8 +5,8 @@
 development: &development
     
   :admin:
-    :login: administrator
-    :password: 12341234
+    :login: admin
+    :password: wadus
 
   :site:
     :title: Planetoid
@@ -38,6 +38,12 @@ development: &development
 
   :google:
     :analytics:
+    
+  :twitter:
+    :send_updates: true
+    :update_prefix: "New Post!"
+    :user: wadus
+    :password: wadus
         
 test:
     <<: *development
