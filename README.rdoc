@@ -40,6 +40,8 @@ There is a rake task that will update all the feeds, you can put this into your 
 
 * Google Analytics support. Just include your Google Analytics tracker number on the config/planetoid file and the code for Google Analytic will be included on the site (only for production environment). This number is something like UA-123456-78, you'll find it on your Google Analytics tracking code.
 
+* Twitter integration. You can specify a twitter account to send twitts to it and notificate of new members, feeds, entries and projects.
+
 = List of sites using Planetoid
 
 Here's a list of sample sites using Planetoid. If you want your site to be added, just send me a message.
