@@ -8,10 +8,6 @@ class Entry < ActiveRecord::Base
 
   private
   
-  after_create :twitt
-  
-  private
-  
   # Send a twitter notification if necessary
   def twitt
     if PLANETOID_CONF[:twitter][:entries][:send_twitts] && self.published > self.feed.created_at
