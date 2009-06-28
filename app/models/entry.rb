@@ -3,6 +3,10 @@ class Entry < ActiveRecord::Base
   
   validates_presence_of :feed_id, :url
   validates_uniqueness_of :url
+
+  after_create :twitt
+
+  private
   
   after_create :twitt
   
@@ -11,7 +15,7 @@ class Entry < ActiveRecord::Base
   # Send a twitter notification if necessary
   def twitt
     if PLANETOID_CONF[:twitter][:entries][:send_twitts] && self.published > self.feed.created_at
-      twit=Twitter::Base.new(HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
+      twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
       twit.update "#{PLANETOID_CONF[:twitter][:entries][:prefix]} #{self.title[0..150]} #{self.url}"
     end
   end
