@@ -1,5 +1,5 @@
 <div class="span-12 last">
-	<h3><strong><%= h project.name %></strong> <small>by <%= project.users.map {|u| "#{link_to(h(u.name), u)}"}.join(", ") %></small></h3>
+	<h3><strong><%= h project.name %></strong> <small>by <%= project.users.map {|u| "#{link_to(h(u.name), user_slug_path(u))}"}.join(", ") %></small></h3>
 	<p><%= link_to h(project.url.gsub("http://", "")), h(project.url) %></p>
 	<blockquote><%= simple_format(project.description) %></blockquote>
 	

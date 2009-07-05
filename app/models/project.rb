@@ -4,4 +4,16 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :url
   validates_format_of :url, :with => REXP_URL
   validates_uniqueness_of :url
+  
+  after_create :twitt
+  
+  private
+  
+  # Send a twitter notification if necessary
+  def twitt
+    if PLANETOID_CONF[:twitter][:projects][:send_twitts]
+      twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
+      twit.update "#{PLANETOID_CONF[:twitter][:projects][:prefix]} #{self.name} #{self.url}" 
+    end
+  end
 end
