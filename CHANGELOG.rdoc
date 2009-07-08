@@ -1,3 +1,7 @@
+= 0.1.4
+=== 8th July, 2009
+* Optimized feed parsing by passing etag if available (thanks to @pantulis)
+
 = 0.1.3
 === 28th June, 2009
 * Added site URL to config/planetoid.yml.example
