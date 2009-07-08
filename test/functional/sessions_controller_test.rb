@@ -21,6 +21,18 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to '/'
     assert_not_nil flash[:notice]
   end
+
+  def test_should_login_and_redirect_to_home_with_a_crypted_password
+    assert_nil session[:admin]
+    PLANETOID_CONF[:admin][:hash_password] = true
+    PLANETOID_CONF[:admin][:password] = Digest::SHA1.hexdigest('wadus')
+    
+    post :create, :login => PLANETOID_CONF[:admin][:login].to_s, :password => PLANETOID_CONF[:admin][:password].to_s
+    assert_equal session[:admin], true
+    assert_response :redirect
+    assert_redirected_to '/'
+    assert_not_nil flash[:notice]
+  end
   
   def test_should_fail_login_and_redirect_to_login
     assert_nil session[:admin]
@@ -31,6 +43,17 @@ class SessionsControllerTest < ActionController::TestCase
     assert_not_nil flash[:error]
   end
   
+  def test_should_fail_and_redirect_to_home_with_a_crypted_password
+    assert_nil session[:admin]
+    PLANETOID_CONF[:admin][:hash_password] = true
+    
+    post :create, :login => PLANETOID_CONF[:admin][:login].to_s, :password => PLANETOID_CONF[:admin][:password].to_s
+    assert_equal session[:admin], true
+    assert_response :redirect
+    assert_redirected_to '/'
+    assert_not_nil flash[:notice]
+  end
+
   def test_should_logout_and_redirect_to_home
     session[:admin] = true
     get :destroy

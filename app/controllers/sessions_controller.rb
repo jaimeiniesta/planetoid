@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    password = PLANETOID_CONF[:admin][:hash_password] ? Digest::SHA1.hexdigest(params[:password]) : params[:password]
     if params[:login] == PLANETOID_CONF[:admin][:login].to_s && params[:password] == PLANETOID_CONF[:admin][:password].to_s
       session[:admin] = true
       flash[:notice] = "Welcome, admin!"
