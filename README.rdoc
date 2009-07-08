@@ -78,6 +78,7 @@ I wanted to thank the whole Ruby community and following people in particular:
 * Juan Gallego Galisteo (http://juan.gg/) for his comments, ideas and code contributions
 * Ismael Celis (http://estadobeta.com/) for his wonderful Sluggable Finder gem
 * Javier Ramirez (http://github.com/javier) for his contributions on twitter integration
+* Juan Lupión (http://github.com/pantulis) for his contributions on feed parsing optimization and others
 
 = License and copyright
 
