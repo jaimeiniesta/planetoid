@@ -37,7 +37,7 @@ class Feed < ActiveRecord::Base
   #
   def self.fetch_all!
     Feed.find(:all).each do |f|
-      f.fetch!
+      f.fetch! rescue nil
     end
   end
   
