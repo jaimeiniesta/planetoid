@@ -57,9 +57,10 @@ CREATE TABLE `users` (
   `updated_at` datetime default NULL,
   `slug` varchar(255) default NULL,
   `slideshare_user` varchar(255) default NULL,
+  `delicious_user` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_users_on_slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20090520134455');
 
@@ -76,3 +77,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090609085237');
 INSERT INTO schema_migrations (version) VALUES ('20090611075753');
 
 INSERT INTO schema_migrations (version) VALUES ('20100120180912');
+
+INSERT INTO schema_migrations (version) VALUES ('20100120204737');

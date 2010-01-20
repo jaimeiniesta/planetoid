@@ -1,6 +1,8 @@
 = 0.1.6
 === 20th January, 2010
 * Upgraded to use rails 2.3.4
+* Added support for Slideshare (feature introduced by @javier)
+* Added support for Delicious (feature introduced by @ceritium)
 
 = 0.1.5
 === 8th July, 2009

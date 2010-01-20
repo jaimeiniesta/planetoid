@@ -31,20 +31,23 @@ class UserTest < ActiveSupport::TestCase
                     :blog_url => users(:jaime).blog_url,
                     :twitter_user => users(:jaime).twitter_user,
                     :github_user => users(:jaime).github_user,
-                    :slideshare_user => users(:jaime).slideshare_user)
+                    :slideshare_user => users(:jaime).slideshare_user,
+                    :delicious_user => users(:jaime).delicious_user)
     assert !user.valid?
-    assert_equal user.errors.size, 5
+    assert_equal user.errors.size, 6
     assert user.errors.on(:email)
     assert user.errors.on(:blog_url)
     assert user.errors.on(:twitter_user)
     assert user.errors.on(:github_user)
     assert user.errors.on(:slideshare_user)
+    assert user.errors.on(:delicious_user)
     
     user.email = "pepito@example.com"
     user.blog_url = "http://pepito.jaimeiniesta.com"
     user.twitter_user = "pepito"
     user.github_user = "pepito"
     user.slideshare_user = "pepito"
+    user.delicious_user = "pepito"
     assert user.valid?
   end
   
@@ -108,6 +111,21 @@ class UserTest < ActiveSupport::TestCase
     end
   end  
   
+  def test_delicious_user_should_have_a_valid_format
+    user = create_user
+    ['nickel 84', 'h.ppywebcoder'].each do |s|
+      user.delicious_user = s
+      assert !user.valid?
+      assert user.errors.on(:delicious_user)
+    end
+    
+    ['ji', 'nickel84', 'sepa_rate', 'ernesto-jimenez'].each do |s|
+      user.delicious_user = s
+      assert user.valid?
+      assert !user.errors.on(:delicious_user)
+    end
+  end
+  
   def test_should_validate_format_of_urls
     # http://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_host_names
     # RFCs mandate that a hostname's labels may contain only the ASCII letters 'a' through 'z' (case-insensitive), the digits '0' through '9', and the hyphen.
@@ -159,6 +177,11 @@ class UserTest < ActiveSupport::TestCase
     assert_nil users(:notdeveloper).slideshare_url
   end
   
+  def test_should_get_delicious_url
+    assert_equal "http://del.icio.us/capitanplaneta", users(:jaime).delicious_url
+    assert_nil users(:notdeveloper).delicious_url
+  end
+  
   def test_should_create_slug
     user = create_user
     assert_equal user.slug, 'pepe-planeta'
@@ -177,7 +200,8 @@ class UserTest < ActiveSupport::TestCase
                         :blog_url => 'http://planeta.jaimeiniesta.com',
                         :twitter_user => 'potipoti',
                         :github_user => 'potipoti',
-                        :slideshare_user => 'potipoti' }.merge(options))
+                        :slideshare_user => 'potipoti',
+                        :delicious_user => 'potipoti' }.merge(options))
     record.save
     record
   end

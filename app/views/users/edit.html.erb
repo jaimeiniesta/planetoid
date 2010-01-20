@@ -35,6 +35,11 @@
 			<%= f.text_field :slideshare_user %>
 	  </p>
 	  <p>
+	    <%= f.label :delicious_user %><br />
+	    <%= DELICIOUS_URL %>
+			<%= f.text_field :delicious_user %>
+	  </p>
+	  <p>
 	    <%= f.submit 'Update' %>
 	  </p>
 	<% end %>

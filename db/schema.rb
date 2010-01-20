@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100120180912) do
+ActiveRecord::Schema.define(:version => 20100120204737) do
 
   create_table "entries", :force => true do |t|
     t.integer  "feed_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20100120180912) do
     t.datetime "updated_at"
     t.string   "slug"
     t.string   "slideshare_user"
+    t.string   "delicious_user"
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"
