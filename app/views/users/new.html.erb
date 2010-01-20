@@ -30,6 +30,11 @@
 	    <%= f.text_field :github_user %>
 	  </p>
 	  <p>
+	    <%= f.label :slideshare_user %><br />
+	    <%= SLIDESHARE_URL %>
+			<%= f.text_field :slideshare_user %>
+	  </p>
+	  <p>
 	    <%= f.submit 'Create' %>
 	  </p>
 	<% end %>

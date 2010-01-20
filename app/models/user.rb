@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   validates_format_of :blog_url, :with => REXP_URL, :allow_blank => true
   validates_format_of :twitter_user, :with => REXP_TWITTER_USER, :allow_blank => true
   validates_format_of :github_user, :with => REXP_GITHUB_USER, :allow_blank => true
+  validates_format_of :slideshare_user, :with => REXP_SLIDESHARE_USER, :allow_blank => true  
   
   validates_uniqueness_of :email, :allow_blank => true
-  validates_uniqueness_of :blog_url, :twitter_user, :github_user, :allow_blank => true
+  validates_uniqueness_of :blog_url, :twitter_user, :github_user, :slideshare_user, :allow_blank => true
   
   sluggable_finder :name
   
@@ -26,6 +27,11 @@ class User < ActiveRecord::Base
   # Returns the full twitter URL for this user if has a twitter user, or nil if not
   def twitter_url
     twitter_user.blank? ? nil : "#{TWITTER_URL}#{twitter_user}"
+  end
+  
+  # Returns the full slideshare URL for this user if has a slideshare user, or nil if not
+  def slideshare_url
+    slideshare_user.blank? ? nil : "#{SLIDESHARE_URL}#{slideshare_user}"
   end
   
   private

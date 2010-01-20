@@ -7,6 +7,8 @@
 	<hr />
 </div>
 
+<%= render :partial => 'users/slideshare' if @user.slideshare_user.present? %>
+
 <%= render :partial => 'projects/list' if !@projects.empty? %>
 
 <%= render :partial => 'entries/list' if !@entries.empty? %>

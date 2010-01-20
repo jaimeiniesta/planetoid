@@ -7,6 +7,7 @@
 		<%= "Blog: " + link_to(user.blog_url.gsub("http://", ""), user.blog_url) + "<br />" if !user.blog_url.blank? %>
 		<%= "Twitter: " + link_to(user.twitter_url.gsub("http://", ""), user.twitter_url) + "<br />" if !user.twitter_user.blank? %>
 		<%= "Github: " + link_to(user.github_url.gsub("http://", ""), user.github_url) + "<br />" if !user.github_user.blank? %>
+		<%= "Slideshare: " + link_to(user.slideshare_url.gsub("http://", ""), user.slideshare_url) + "<br />" if !user.slideshare_user.blank? %>
 		<%= "Projects: " + user.projects.map {|p| "#{link_to(h(p.name), p.url)}"}.join(", ") if user.projects.size > 0 %>
 	</p>
 	<% if admin? %>

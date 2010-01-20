@@ -6,6 +6,7 @@ jaime:
   blog_url: http://jaimeiniesta.com
   twitter_user: jaimeiniesta
   github_user: jaimeiniesta
+  slideshare_user: jaimeiniesta
 
 rai:
   id: 2
@@ -15,6 +16,7 @@ rai:
   blog_url: http://raimondgarcia.com
   twitter_user: voodoorai2000
   github_user: voodoorai2000
+  slideshare_user: voodoorai2000
   
 raul:
   id: 3
@@ -24,6 +26,7 @@ raul:
   blog_url: http://raul.murciano.net
   twitter_user: happywebcoder
   github_user: raul
+  slideshare_user: raul
   
 javier:
   id: 4
@@ -33,6 +36,7 @@ javier:
   blog_url: http://formatinternet.com
   twitter_user: supercoco9
   github_user: javier
+  slideshare_user: supercoco9
   
 emili:
   id: 5
@@ -42,6 +46,7 @@ emili:
   blog_url: http://eparreno.com
   twitter_user: eparreno
   github_user: eparreno
+  slideshare_user: eparreno
   
 felipe:
   id: 6
@@ -51,6 +56,7 @@ felipe:
   blog_url: http://iamfelipe.com
   twitter_user: flype
   github_user: flype
+  slideshare_user: flype
   
 juan:
   id: 7
@@ -60,6 +66,7 @@ juan:
   blog_url: http://juan.gg
   twitter_user: nickel83
   github_user: nickel
+  slideshare_user: nickel
   
 notdeveloper:
   id: 8

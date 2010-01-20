@@ -11,7 +11,7 @@ CREATE TABLE `entries` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=254 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feeds` (
   `id` int(11) NOT NULL auto_increment,
@@ -24,7 +24,7 @@ CREATE TABLE `feeds` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL auto_increment,
@@ -34,7 +34,7 @@ CREATE TABLE `projects` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `projects_users` (
   `project_id` int(11) default NULL,
@@ -56,9 +56,10 @@ CREATE TABLE `users` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   `slug` varchar(255) default NULL,
+  `slideshare_user` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_users_on_slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20090520134455');
 
@@ -73,3 +74,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090528214708');
 INSERT INTO schema_migrations (version) VALUES ('20090609085237');
 
 INSERT INTO schema_migrations (version) VALUES ('20090611075753');
+
+INSERT INTO schema_migrations (version) VALUES ('20100120180912');
