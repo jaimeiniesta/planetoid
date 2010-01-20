@@ -1,3 +1,7 @@
+= 0.1.6
+=== 20th January, 2010
+* Upgraded to use rails 2.3.4
+
 = 0.1.5
 === 8th July, 2009
 * Optional SHA1 for admin password on config/planetoid.yml (thanks to @nickel)
