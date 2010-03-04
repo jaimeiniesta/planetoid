@@ -1,3 +1,7 @@
+= 0.1.7
+=== 4th March, 2010
+* Added rescue to twitts from all models
+
 = 0.1.6
 === 20th January, 2010
 * Upgraded to use rails 2.3.4
