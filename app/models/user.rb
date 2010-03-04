@@ -45,8 +45,13 @@ class User < ActiveRecord::Base
   # Send a twitter notification if necessary
   def twitt
     if PLANETOID_CONF[:twitter][:users][:send_twitts]
-      twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
-      twit.update "#{PLANETOID_CONF[:twitter][:users][:prefix]} #{self.name} #{PLANETOID_CONF[:site][:url]}/#{self.slug}" 
+      begin
+        twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
+        twit.update "#{PLANETOID_CONF[:twitter][:users][:prefix]} #{self.name} #{PLANETOID_CONF[:site][:url]}/#{self.slug}" 
+      rescue Exception => e
+        puts e.message
+        puts e.backtrace.inspect
+      end
     end
   end  
 
