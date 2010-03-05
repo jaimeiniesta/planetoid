@@ -47,9 +47,6 @@ development: &development
     :users:
       :send_twitts: false
       :prefix: New Member!
-    :feeds:
-      :send_twitts: false
-      :prefix: New Feed!
     :entries:
       :send_twitts: false
       :prefix: New Post!
