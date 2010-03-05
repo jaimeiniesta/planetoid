@@ -1,3 +1,7 @@
+= 0.1.7
+== ...
+* Twitter messages to announce new entries are generated as prefix + title + url, truncating as needed to fit in 140 char
+
 = 0.1.6
 === 20th January, 2010
 * Upgraded to use rails 2.3.4
