@@ -28,10 +28,10 @@ class Entry < ActiveRecord::Base
     msg = PLANETOID_CONF[:twitter][:entries][:prefix][0..139]
     
     if msg.length < 135
-      msg = msg + " " + self.title[0..(140 - msg.length - 2)]
+      msg = msg + " " + title[0..(140 - msg.length - 2)]
       
-      if msg.length < 140 && self.url.length < (140 - msg.length)
-        msg = msg + " " + self.url
+      if msg.length < 140 && url.length < (140 - msg.length)
+        msg = msg + " " + url
       end
     end
 
