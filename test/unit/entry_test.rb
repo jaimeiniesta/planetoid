@@ -80,19 +80,6 @@ class EntryTest < ActiveSupport::TestCase
   
   private
   
-  def create_entry(options = {})
-    record = Entry.new({:feed_id => feeds(:jaime_blog).id,
-                        :url => 'http://www.example.com',
-                        :author => 'Jaime Iniesta',
-                        :title => 'Another entry',
-                        :summary => 'The summary',
-                        :content => 'The content is usually longer than the summary',
-                        :published => 3.days.ago,
-                        :categories => 'ruby, rails, web development'}.merge(options))
-    record.save
-    record
-  end
-  
   def new_entry(options = {})
     record = Entry.new({:feed_id => feeds(:jaime_blog).id,
                         :url => 'http://www.example.com',
@@ -102,6 +89,12 @@ class EntryTest < ActiveSupport::TestCase
                         :content => 'The content is usually longer than the summary',
                         :published => 3.days.ago,
                         :categories => 'ruby, rails, web development'}.merge(options))
+  end
+  
+  def create_entry(options = {})
+    record = new_entry(options)
+    record.save
+    record
   end
   
 end
