@@ -60,4 +60,80 @@ class ProjectTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_use_name_as_title
+    assert_equal projects(:planetoid).name, projects(:planetoid).title
+  end
+  
+  def test_should_generate_twitter_msg_as_prefix_name_url
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix]
+    project = new_project
+
+    assert_equal 67, project.twitter_msg.length
+    assert_equal "#{prefix} #{project.name} #{project.url}", project.twitter_msg
+  end
+
+  def test_should_use_only_prefix_if_no_room_for_name
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*140
+    project = new_project
+    
+    assert_equal 140, project.twitter_msg.length
+    assert_equal "#{prefix}", project.twitter_msg
+  end
+
+  def test_should_truncate_prefix_if_needed
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*141
+    project = new_project
+    
+    assert_equal 140, project.twitter_msg.length
+    assert_equal "#{prefix[0..139]}", project.twitter_msg
+  end
+  
+  def test_should_not_include_name_if_there_is_no_space_for_prefix_one_space_and_5_chars_for_name
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*135
+    project = new_project(:name => "B"*5)
+    
+    assert_equal 135, project.twitter_msg.length
+    assert_equal "#{prefix}", project.twitter_msg
+  end
+  
+  def test_should_include_name_if_there_is_space_for_prefix_one_space_and_5_chars_for_name
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*134
+    project = new_project(:name => "B"*5)
+    
+    assert_equal 140, project.twitter_msg.length
+    assert_equal "#{prefix} #{project.name}", project.twitter_msg
+  end
+  
+  def test_should_truncate_name_if_needed
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*130
+    project = new_project(:name => "B"*10)
+    
+    assert_equal 140, project.twitter_msg.length
+    assert_equal "#{prefix} #{project.name[0..8]}", project.twitter_msg
+  end
+  
+  def test_should_include_url_if_there_is_enough_room
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*94
+    project = new_project(:name => "B"*10)
+
+    assert_equal 140, project.twitter_msg.length
+    assert_equal "#{prefix} #{project.name} #{project.url}", project.twitter_msg
+  end
+  
+  def test_should_not_include_url_if_there_is_not_enough_room
+    prefix = PLANETOID_CONF[:twitter][:projects][:prefix] = "A"*112
+    project = new_project(:name => "B"*5)
+    
+    assert_equal 118, project.twitter_msg.length
+    assert_equal "#{prefix} #{project.name}", project.twitter_msg
+  end
+  
+  private
+  
+  def new_project(options = {})
+    record = Project.new({  :name => 'A brand new project',
+                            :url => 'http://example.com/brandnewproject' }.merge(options))
+    record
+  end
+  
 end
