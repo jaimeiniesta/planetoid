@@ -40,19 +40,46 @@ class User < ActiveRecord::Base
     delicious_user.blank? ? nil : "#{DELICIOUS_URL}#{delicious_user}"
   end
   
-  private
+  # Use user's name as its title
+  def title
+    name
+  end
+  
+  # Return url of this user's profile
+  def url
+    "#{PLANETOID_CONF[:site][:url]}/#{slug}"
+  end
   
   # Send a twitter notification if necessary
   def twitt
     if PLANETOID_CONF[:twitter][:users][:send_twitts]
       begin
         twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
-        twit.update "#{PLANETOID_CONF[:twitter][:users][:prefix]} #{self.name} #{PLANETOID_CONF[:site][:url]}/#{self.slug}" 
+        twit.update twitter_msg 
       rescue Exception => e
         puts e.message
         puts e.backtrace.inspect
       end
     end
   end  
+  
+  # Twitter message should be always 140 chars max.
+  # Twitter message is generated as prefix + title + url, in this preference order and truncating as needed
+  # Prefix will be truncated and take the full 140 chars if needed
+  # Title will only be included if there is room for prefix, an space and at least 5 chars for title
+  # URL will only be included if there is enough room for prefix, title and itself without truncating
+  def twitter_msg    
+    msg = PLANETOID_CONF[:twitter][:users][:prefix][0..139]
+    
+    if msg.length < 135
+      msg = msg + " " + title[0..(140 - msg.length - 2)]
+      
+      if msg.length < 140 && url.length < (140 - msg.length)
+        msg = msg + " " + url
+      end
+    end
+
+    msg
+  end
 
 end

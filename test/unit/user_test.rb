@@ -192,9 +192,81 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user.slug, 'jaime-iniesta-2'
   end
   
+  def test_should_use_name_as_title
+    assert_equal users(:jaime).name, users(:jaime).title
+  end
+  
+  def test_url
+    assert_equal "#{PLANETOID_CONF[:site][:url]}/#{users(:jaime).slug}", users(:jaime).url
+  end
+  
+  def test_should_generate_twitter_msg_as_prefix_name_url
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix]
+    user = create_user
+
+    assert_equal 61, user.twitter_msg.length
+    assert_equal "#{prefix} #{user.name} #{user.url}", user.twitter_msg
+  end
+
+  def test_should_use_only_prefix_if_no_room_for_name
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*140
+    user = create_user
+    
+    assert_equal 140, user.twitter_msg.length
+    assert_equal "#{prefix}", user.twitter_msg
+  end
+
+  def test_should_truncate_prefix_if_needed
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*141
+    user = create_user
+    
+    assert_equal 140, user.twitter_msg.length
+    assert_equal "#{prefix[0..139]}", user.twitter_msg
+  end
+  
+  def test_should_not_include_name_if_there_is_no_space_for_prefix_one_space_and_5_chars_for_name
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*135
+    user = create_user(:name => "B"*5)
+    
+    assert_equal 135, user.twitter_msg.length
+    assert_equal "#{prefix}", user.twitter_msg
+  end
+  
+  def test_should_include_name_if_there_is_space_for_prefix_one_space_and_5_chars_for_name
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*134
+    user = create_user(:name => "B"*5)
+    
+    assert_equal 140, user.twitter_msg.length
+    assert_equal "#{prefix} #{user.name}", user.twitter_msg
+  end
+  
+  def test_should_truncate_name_if_needed
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*130
+    user = create_user(:name => "B"*10)
+    
+    assert_equal 140, user.twitter_msg.length
+    assert_equal "#{prefix} #{user.name[0..8]}", user.twitter_msg
+  end
+  
+  def test_should_include_url_if_there_is_enough_room
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*94
+    user = create_user(:name => "B"*10)
+
+    assert_equal 140, user.twitter_msg.length
+    assert_equal "#{prefix} #{user.name} #{user.url}", user.twitter_msg
+  end
+  
+  def test_should_not_include_url_if_there_is_not_enough_room
+    prefix = PLANETOID_CONF[:twitter][:users][:prefix] = "A"*112
+    user = create_user(:name => "B"*5)
+    
+    assert_equal 118, user.twitter_msg.length
+    assert_equal "#{prefix} #{user.name}", user.twitter_msg
+  end
+  
   private
   
-  def create_user(options = {})
+  def new_user(options = {})
     record = User.new({ :name => 'Pepe Planeta',
                         :email => 'planeta@jaimeiniesta.com',
                         :blog_url => 'http://planeta.jaimeiniesta.com',
@@ -202,6 +274,11 @@ class UserTest < ActiveSupport::TestCase
                         :github_user => 'potipoti',
                         :slideshare_user => 'potipoti',
                         :delicious_user => 'potipoti' }.merge(options))
+    record
+  end
+  
+  def create_user(options = {})
+    record = new_user(options)
     record.save
     record
   end
