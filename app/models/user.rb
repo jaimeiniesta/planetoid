@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Twittable
+  
   has_many :feeds, :order => :title, :dependent => :destroy
   has_many :entries, :through => :feeds, :order => 'entries.published DESC'
   
@@ -17,9 +19,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :blog_url, :twitter_user, :github_user, :slideshare_user, :delicious_user, :allow_blank => true
   
   sluggable_finder :name
-  
-  after_create :twitt
-  
+    
   # Returns the full github URL for this user if has a github user, or nil if not
   def github_url
     github_user.blank? ? nil : "#{GITHUB_URL}#{github_user}"
@@ -40,19 +40,14 @@ class User < ActiveRecord::Base
     delicious_user.blank? ? nil : "#{DELICIOUS_URL}#{delicious_user}"
   end
   
-  private
+  # Use user's name as its title
+  def title
+    name
+  end
   
-  # Send a twitter notification if necessary
-  def twitt
-    if PLANETOID_CONF[:twitter][:users][:send_twitts]
-      begin
-        twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
-        twit.update "#{PLANETOID_CONF[:twitter][:users][:prefix]} #{self.name} #{PLANETOID_CONF[:site][:url]}/#{self.slug}" 
-      rescue Exception => e
-        puts e.message
-        puts e.backtrace.inspect
-      end
-    end
-  end  
+  # Return url of this user's profile
+  def url
+    "#{PLANETOID_CONF[:site][:url]}/#{slug}"
+  end
 
 end
