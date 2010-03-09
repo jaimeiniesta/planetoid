@@ -19,9 +19,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :blog_url, :twitter_user, :github_user, :slideshare_user, :delicious_user, :allow_blank => true
   
   sluggable_finder :name
-  
-  after_create :twitt
-  
+    
   # Returns the full github URL for this user if has a github user, or nil if not
   def github_url
     github_user.blank? ? nil : "#{GITHUB_URL}#{github_user}"
@@ -51,18 +49,5 @@ class User < ActiveRecord::Base
   def url
     "#{PLANETOID_CONF[:site][:url]}/#{slug}"
   end
-  
-  # Send a twitter notification if necessary
-  def twitt
-    if PLANETOID_CONF[:twitter][:users][:send_twitts]
-      begin
-        twit=Twitter::Base.new(Twitter::HTTPAuth.new(PLANETOID_CONF[:twitter][:user], PLANETOID_CONF[:twitter][:password]))
-        twit.update twitter_msg 
-      rescue Exception => e
-        puts e.message
-        puts e.backtrace.inspect
-      end
-    end
-  end  
 
 end

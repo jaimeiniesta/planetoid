@@ -1,6 +1,6 @@
 = 0.1.7
-== ...
-* Twitter messages to announce new entries and users are generated as prefix + title + url, truncating as needed to fit in 140 chars.
+== 9th March, 2010
+* Twitter messages to announce new users, entries and posts are generated as prefix + title + url, truncating as needed to fit in 140 chars.
 * Removed twitter notifications from Feeds, now planetoid only twitts about new users, entries and projects.
 * Rescue from feed fetching failures
 
