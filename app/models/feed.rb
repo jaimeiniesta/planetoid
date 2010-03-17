@@ -31,8 +31,10 @@ class Feed < ActiveRecord::Base
                             :categories => entry.categories) if !Entry.find_by_url(entry.url)
       end
     rescue Exception => e
+      puts "ERROR: could not parse feed #{feed_url}"
       puts e.message
       puts e.backtrace.inspect
+      nil
     end
   end
   
@@ -41,6 +43,7 @@ class Feed < ActiveRecord::Base
   #
   def self.fetch_all!
     Feed.find(:all).each do |f|
+      puts "Fetching #{f.feed_url}"
       f.fetch! rescue nil
     end
   end

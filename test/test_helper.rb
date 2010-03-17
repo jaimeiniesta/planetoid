@@ -38,4 +38,23 @@ class ActiveSupport::TestCase
   def login_as_admin
     session[:admin] = true
   end
+
+  # Performs a deep copy of PLANETOID_CONF to be used as backup on the tests that modify it
+  def backup_planetoid_conf 
+    @planetoid_conf = Marshal.load(Marshal.dump(PLANETOID_CONF))
+  end
+  
+  # Restores PLANETOID_CONF from the previous backup
+  def restore_planetoid_conf
+    PLANETOID_CONF.merge!(@planetoid_conf)
+  end
+  
+  def activate_bitly
+    PLANETOID_CONF[:bitly][:activated] = true
+  end
+  
+  def deactivate_bitly
+    PLANETOID_CONF[:bitly][:activated] = false
+  end
+
 end

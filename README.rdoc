@@ -42,33 +42,16 @@ There is a rake task that will update all the feeds, you can put this into your 
 
 * Twitter integration. You can specify a twitter account to send twitts to it and notificate of new members, feeds, entries and projects.
 
+* Bit.ly integration. You can specify your Bit.ly credentials (login and API key) so planetoid will shorten all URLs before twitting. To use this, create a Bit.ly account and get your API key at http://bit.ly/account/your_api_key
+
 = List of sites using Planetoid
 
 Here's a list of sample sites using Planetoid. If you want your site to be added, just send me a message.
 
 * http://spainrb.org
 * http://planeta.aspgems.com
-* http://planet.flowersinspace.com
 * http://planet.beecoder.com
 * http://planetgirona.net
-
-= To Do
-
-This is just a prototype, so you can expect new versions soon. Features I'd like to add:
-
-* Auto-discovery of feeds from user urls
-* Auto-fetch feeds when they have not been updated since a given amount of time
-* Show latest post by each user
-* Order users by recent activity
-* Twitter status parsing for all users
-* Pagination
-* Twitter integration so it shows the updates on a given twitter account
-* RSS for the whole site or by individual users
-* Templates
-* Internationalization
-* Mocks
-* On users profile, store only twitter and github nicks, not the full URL. Validate its format (begins with @ or not, etc.)
-* Calendar showing activity
 
 = Thank you!
 

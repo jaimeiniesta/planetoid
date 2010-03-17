@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class FeedTest < ActiveSupport::TestCase
-
+    
   def test_fixtures
     Feed.find(:all).each do |f|
       assert f.valid?

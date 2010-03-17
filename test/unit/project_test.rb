@@ -2,6 +2,15 @@ require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
   
+  def setup
+    backup_planetoid_conf
+    deactivate_bitly 
+  end
+
+  def teardown
+    restore_planetoid_conf
+  end
+  
   def test_fixtures
     Project.find(:all).each do |p|
       assert p.valid?
@@ -126,6 +135,44 @@ class ProjectTest < ActiveSupport::TestCase
     
     assert_equal 118, project.twitter_msg.length
     assert_equal "#{prefix} #{project.name}", project.twitter_msg
+  end
+  
+  ##################################
+  # BIT.LY URL SHORTENING ON TWITTS
+  ##################################
+  
+  def test_short_url_returns_jmp_url_if_activated_on_options
+    activate_bitly
+
+    project = new_project
+    assert_equal "http://j.mp/cuQZg3", project.short_url
+  end
+  
+  def test_short_url_returns_original_url_if_not_activated_on_options
+    deactivate_bitly
+    
+    project = new_project
+    assert_equal project.url, project.short_url
+  end
+  
+  def test_short_url_returns_original_url_if_fails_authentication_on_jmp
+    activate_bitly
+    PLANETOID_CONF[:bitly][:login] = PLANETOID_CONF[:bitly][:api_key] = 'wrong'
+    
+    project = new_project
+    assert_equal project.url, project.short_url
+  end
+  
+  def test_twitt_message_uses_short_url_if_bitly_activated
+    activate_bitly
+    project = new_project
+    assert_equal "#{PLANETOID_CONF[:twitter][:projects][:prefix]} #{project.title} #{project.short_url}", project.twitter_msg
+  end
+  
+  def test_twitt_message_uses_full_url_if_bitly_deactivated
+    deactivate_bitly
+    project = new_project
+    assert_equal "#{PLANETOID_CONF[:twitter][:projects][:prefix]} #{project.title} #{project.url}", project.twitter_msg
   end
   
   private

@@ -9,6 +9,21 @@ module Twittable
     return nil
   end
   
+  # Returns shortened URL using the J.mp (bit.ly) external service
+  # If so specified on planetoid options
+  def short_url
+    if PLANETOID_CONF[:bitly][:activated]
+      begin
+        bitly = Bitly.new(PLANETOID_CONF[:bitly][:login], PLANETOID_CONF[:bitly][:api_key])
+        bitly.shorten(url).jmp_url
+      rescue
+        url
+      end
+    else
+      url
+    end
+  end
+  
   # Send a twitter notification
   def twitt
     begin
@@ -31,8 +46,8 @@ module Twittable
     if msg.length < 135
       msg = msg + " " + title[0..(140 - msg.length - 2)]
       
-      if msg.length < 140 && url.length < (140 - msg.length)
-        msg = msg + " " + url
+      if msg.length < 140 && short_url.length < (140 - msg.length)
+        msg = msg + " " + short_url
       end
     end
 

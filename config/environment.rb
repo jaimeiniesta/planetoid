@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'pauldix-feedzirra', :version => '~> 0.0.12', :lib => 'feedzirra', :source => 'http://gems.github.com'
   config.gem "ismasan-sluggable_finder", :source => "http://gems.github.com", :lib => 'sluggable_finder'
   config.gem 'jnunemaker-twitter', :version => '>= 0.6.12', :source => "http://gems.github.com", :lib => 'twitter'
+  config.gem 'bitly', :version => '0.4.0'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

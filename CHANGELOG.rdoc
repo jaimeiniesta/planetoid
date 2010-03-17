@@ -1,3 +1,7 @@
+= 0.1.9
+=== 17th March, 2010
+* Bit.ly integration. You can specify your Bit.ly credentials (login and API key) so planetoid will shorten all URLs before twitting. To use this, create a Bit.ly account and get your API key at http://bit.ly/account/your_api_key . Look at config/planetoid.yml.example to see how to update your config/planetoid.yml file.
+
 = 0.1.8
 === 4th March, 2010
 * Twitter messages to announce new users, entries and posts are generated as prefix + title + url, truncating as needed to fit in 140 chars.
