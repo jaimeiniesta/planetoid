@@ -5,7 +5,9 @@
 <div class="span-15 leftborder last">
 	<% @users.each do |user| %>
 		<%= render :partial => 'users/user', :locals => { :user => user } %>
-		<%= "<hr />" if user != @users.last %>
+		<% if user != @users.last %>
+			<hr />
+		<% end %>
 	<% end %>
 </div>
 <hr class="space" />

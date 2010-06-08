@@ -6,7 +6,7 @@
 		<param name="movie" value="http://static.slidesharecdn.com/swf/egowidget2.swf"/>
 		<param name="allowFullScreen" value="true"/>
 		<param name="allowScriptAccess" value="always"/>
-		<embed src="http://static.slidesharecdn.com/swf/egowidget2.swf" flashVars="feedurl=user/<%= @user.slideshare_user %>&widgettitle=<%=h @user.name%> - <%= h @user.slideshare_url %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="538" height="341">
+		<embed src="http://static.slidesharecdn.com/swf/egowidget2.swf" flashVars="feedurl=user/<%= @user.slideshare_user %>&widgettitle=<%= @user.name%> - <%= @user.slideshare_url %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="538" height="341">
 		</embed>
 	</object>
 </div>

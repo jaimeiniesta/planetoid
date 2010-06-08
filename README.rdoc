@@ -10,10 +10,13 @@ Also, Planetoid requires the following gems:
 
 * Feedzirra, to fetch the feeds. http://github.com/pauldix/feedzirra
 * Sluggable Finder, to generate user permalinks. http://github.com/ismasan/sluggable-finder
+* Twitter, to twitt http://github.com/jnunemaker/twitter
+* Bit.ly, to shorten URLs before sending them to Twitter http://github.com/philnash/bitly
+* erubis, to render the .erb views http://github.com/genki/erubis
 
 You can install these gems manually or running:
 
-  sudo rake:gems:install
+  [sudo] rake:gems:install
 
 = Installation notes
 

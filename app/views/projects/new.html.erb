@@ -24,7 +24,7 @@
 			<label>People involved in this project</label><br />
 			<% User.find(:all, :order => 'name').each do |u| %>
 				<%= check_box_tag("project[user_ids][]", u.id, @project.users.include?(u)) %>
-			 	<%= h u.name %><br />
+			 	<%= u.name %><br />
 			<% end %>
 		</p>
 	  <p>

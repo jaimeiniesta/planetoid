@@ -1,19 +1,19 @@
 <p>
-	<strong><%= link_to h(entry.title), entry.url %></strong> published<%= " #{time_ago_in_words entry.published} ago" if entry.published %> by <%= link_to h(entry.feed.user.name), user_slug_path(entry.feed.user) %>
-	<%= link_to image_tag(url_for_gravatar(entry.feed.user.email), :alt => h(entry.feed.user.name), :title => h(entry.feed.user.name), :align => 'absmiddle', :hspace => 10), user_slug_path(entry.feed.user) if PLANETOID_CONF[:layout][:entries][:show_avatar] %>
+	<strong><%= link_to entry.title, entry.url %></strong> published<%= " #{time_ago_in_words entry.published} ago" if entry.published %> by <%= link_to entry.feed.user.name, user_slug_path(entry.feed.user) %>
+	<%= link_to image_tag(url_for_gravatar(entry.feed.user.email), :alt => entry.feed.user.name, :title => entry.feed.user.name, :align => 'absmiddle', :hspace => 10), user_slug_path(entry.feed.user) if PLANETOID_CONF[:layout][:entries][:show_avatar] %>
 </p>
 
 <% if PLANETOID_CONF[:layout][:entries][:show_summary] && entry.summary %>
 <blockquote>
 	<% if PLANETOID_CONF[:layout][:entries][:strip_tags] %>
-		<%= simple_format(truncate(strip_tags(entry.summary), :length => PLANETOID_CONF[:layout][:entries][:summary_length] || 400)) %>
+		<%= truncate(strip_tags(entry.summary), :length => PLANETOID_CONF[:layout][:entries][:summary_length] || 400).html_safe %>
 	<% else %>
-		<%= simple_format(entry.summary) %>
+		<%= entry.summary.html_safe %>
 	<% end %>
 </blockquote>
 
 <p align="right">
-	<em><%= link_to "continue reading &gt;&gt;", entry.url %></em>
+	<em><%= link_to "continue reading &gt;&gt;".html_safe, entry.url %></em>
 </p>
 <% end %>
 <hr class="clear" />

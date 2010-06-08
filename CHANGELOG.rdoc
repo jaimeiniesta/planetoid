@@ -1,3 +1,9 @@
+= 0.2.0
+=== 8th June, 2010
+* Upgraded to rails 2.3.8
+* Uses rails_xss plugin and erubis gem
+* Removed simple_format from entries summaries, applied html_safe to it: you can still choose between stripping tags (recommended) or not.
+
 = 0.1.9
 === 17th March, 2010
 * Bit.ly integration. You can specify your Bit.ly credentials (login and API key) so planetoid will shorten all URLs before twitting. To use this, create a Bit.ly account and get your API key at http://bit.ly/account/your_api_key . Look at config/planetoid.yml.example to see how to update your config/planetoid.yml file.

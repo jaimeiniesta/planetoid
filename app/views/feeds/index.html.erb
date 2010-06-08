@@ -14,7 +14,7 @@
 
 	<% @feeds.each do |feed| %>
 	  <tr>
-	    <td><%=link_to h(feed.user.name), user_slug_path(feed.user) %></td>
+	    <td><%=link_to feed.user.name, user_slug_path(feed.user) %></td>
 	    <td><%= auto_link feed.feed_url %></td>
 			<% if admin? %>
 	    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
