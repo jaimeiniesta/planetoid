@@ -14,8 +14,8 @@
 
 	<% @feeds.each do |feed| %>
 	  <tr>
-	    <td><%=link_to feed.user.name, user_slug_path(feed.user) %></td>
-	    <td><%= auto_link feed.feed_url %></td>
+	    <td><%= link_to feed.user.name, user_slug_path(feed.user) %></td>
+	    <td><%= link_to feed.feed_url, feed.feed_url %></td>
 			<% if admin? %>
 	    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
 	    <td><%= link_to 'Destroy', feed, :confirm => 'Are you sure?', :method => :delete %></td>

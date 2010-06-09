@@ -5,7 +5,9 @@
 <div class="span-15 leftborder last">
 	<% @projects.each do |project| %>
 		<%= render :partial => 'projects/project', :locals => { :project => project } %>
-		<%= "<hr />" if project != @projects.last %>
+		<% if project != @projects.last %>
+			<hr />
+		<% end %>
 	<% end %>
 
 	<% if admin? %>
