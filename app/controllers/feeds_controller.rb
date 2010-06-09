@@ -30,8 +30,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        flash[:notice] = 'Feed was successfully created.'
-        format.html { redirect_to(feeds_url) }
+        format.html { redirect_to(feeds_url, :notice => 'Feed was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -44,8 +43,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.update_attributes(params[:feed])
-        flash[:notice] = 'Feed was successfully updated.'
-        format.html { redirect_to(feeds_url) }
+        format.html { redirect_to(feeds_url, :notice => 'Feed was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
@@ -58,7 +56,7 @@ class FeedsController < ApplicationController
     @feed.destroy
 
     respond_to do |format|
-      format.html { redirect_to(feeds_url) }
+      format.html { redirect_to(feeds_url, :notice => 'Feed was successfully removed.') }
     end
   end
 end

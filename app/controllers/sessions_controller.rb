@@ -7,18 +7,15 @@ class SessionsController < ApplicationController
     password = PLANETOID_CONF[:admin][:hash_password] == true ? Digest::SHA1.hexdigest(params[:password]) : params[:password]
     if params[:login] == PLANETOID_CONF[:admin][:login].to_s && password == PLANETOID_CONF[:admin][:password].to_s
       session[:admin] = true
-      flash[:notice] = "Welcome, admin!"
-      redirect_to '/'
+      redirect_to '/', :notice => "Welcome, admin!"
     else
-      flash[:error] = "Couldn't log you in, please retry"
-      redirect_to '/login'
+      redirect_to '/login', :alert => "Couldn't log you in, please retry"
     end
   end
 
   def destroy
     reset_session
-    flash[:notice] = "Bye bye!"
-    redirect_to '/'
+    redirect_to '/', :notice => "Bye bye!"
   end
 
 end

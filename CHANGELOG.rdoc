@@ -1,3 +1,9 @@
+= 0.2.1
+=== 9th June, 2010
+* Simplify flash notices and alerts, including them on redirections, as introduced on rails 2.3.6:
+http://github.com/rails/rails/commit/e6cadd422b72ba9818cc2f3b22243a6aa754c9f8
+
+
 = 0.2.0
 === 8th June, 2010
 * Upgraded to rails 2.3.8

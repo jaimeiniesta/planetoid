@@ -2,11 +2,11 @@
 	<p style="color: green; width: 100%; padding: 5px; border: 1px solid green; text-align: center;" id="flash"><%= flash[:notice] %></p>
 <% end %>
 
-<% if flash[:error] %>
-	<p style="color: red; width: 100%; padding: 5px; border: 1px solid red; text-align: center;" id="flash"><%= flash[:error] %></p>
+<% if flash[:alert] %>
+	<p style="color: red; width: 100%; padding: 5px; border: 1px solid red; text-align: center;" id="flash"><%= flash[:alert] %></p>
 <% end %>
 
-<% if flash[:notice] || flash[:error] %>
+<% if flash[:notice] || flash[:alert] %>
 	<script type="text/javascript">
 		new Effect.Highlight('flash');
 	</script>

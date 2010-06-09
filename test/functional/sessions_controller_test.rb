@@ -42,7 +42,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_nil session[:admin]
     assert_response :redirect
     assert_redirected_to '/login'
-    assert_not_nil flash[:error]
+    assert_not_nil flash[:alert]
   end
   
   def test_should_fail_and_redirect_to_home_with_a_crypted_password
@@ -53,7 +53,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_nil session[:admin]
     assert_response :redirect
     assert_redirected_to '/login'
-    assert_not_nil flash[:error]
+    assert_not_nil flash[:alert]
   end
 
   def test_should_logout_and_redirect_to_home

@@ -22,8 +22,7 @@ class ApplicationController < ActionController::Base
     if admin?
       true
     else
-      flash[:error] = "Sorry, authentication required"
-      redirect_to '/login'
+      redirect_to '/login', :alert => "Sorry, authentication required"
       false
     end
   end
