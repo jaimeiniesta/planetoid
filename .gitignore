@@ -7,3 +7,4 @@ db/*.sqlite3
 db/test.sqlite3-journal
 public/javascripts/all.js
 public/stylesheets/all.css
+.rvmrc
