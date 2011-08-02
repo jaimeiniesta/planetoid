@@ -53,8 +53,6 @@ Here's a list of sample sites using Planetoid. If you want your site to be added
 
 * http://spainrb.org
 * http://planeta.aspgems.com
-* http://planet.beecoder.com
-* http://planetgirona.net
 
 = Thank you!
 
