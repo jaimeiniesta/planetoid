@@ -2,6 +2,8 @@
 
 Planetoid is a lightweight planet, for small communities who want to aggregate their feeds and projects in one single place.
 
+I've discontinued the development of this project, but I'll leave it here as an archive.
+
 = Dependencies
 
 Planetoid is a rails app, so this means you need to have ruby and rails installed. You can find more info about Ruby on Rails framework on http://rubyonrails.org
